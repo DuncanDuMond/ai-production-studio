@@ -1,0 +1,614 @@
+{
+  "langfuse": {
+    "image": "docker.langfuse.com/langfuse/langfuse:4.36.1@sha256:20f0edcf0d13018d3bfa43b8d1e173fdd66e8de44e34e5d47a003b5b260be17b",
+    "tag": "4.36.1",
+    "source_url": "https://docker.langfuse.com/v2/langfuse/langfuse/manifests/4.36.1",
+    "digest": "sha256:20f0edcf0d13018d3bfa43b8d1e173fdd66e8de44e34e5d47a003b5b260be17b",
+    "document": {
+      "schemaVersion": 2,
+      "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+      "manifests": [
+        {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "digest": "sha256:00f68f31b74ccdbde8e21703f8507174eafa43a510acd6cf092833f51ad4b164",
+          "size": 5013,
+          "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+          }
+        },
+        {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "digest": "sha256:2893eadcdfeef901618237ff724cb8124fa72233981bf066ab9c14dfccc9d362",
+          "size": 5013,
+          "platform": {
+            "architecture": "arm64",
+            "os": "linux"
+          }
+        }
+      ]
+    },
+    "retrieved_at": "2026-09-16T02:47:38.253456+00:00"
+  },
+  "worker": {
+    "image": "docker.langfuse.com/langfuse/langfuse-worker:4.36.1@sha256:20d61e4d7c111e1ef7b428aac2e23277e8e27184728f8b4f648d9aae864e4992",
+    "tag": "4.36.1",
+    "source_url": "https://docker.langfuse.com/v2/langfuse/langfuse-worker/manifests/4.36.1",
+    "digest": "sha256:20d61e4d7c111e1ef7b428aac2e23277e8e27184728f8b4f648d9aae864e4992",
+    "document": {
+      "schemaVersion": 2,
+      "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+      "manifests": [
+        {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "digest": "sha256:1404edca11a7e15bef26462582c46551a01626c29a7cfda1dbc3e1fc853505b0",
+          "size": 2658,
+          "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+          }
+        },
+        {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "digest": "sha256:bf7a1b71372b8ce6ea96c0befb3d049570541956e83d724f5204c91ba28d5295",
+          "size": 2658,
+          "platform": {
+            "architecture": "arm64",
+            "os": "linux"
+          }
+        }
+      ]
+    },
+    "retrieved_at": "2026-09-16T02:47:42.136760+00:00"
+  },
+  "minio": {
+    "image": "cgr.dev/chainguard/minio:latest@sha256:29bbe439d3a3c41afac869973c08a70b1a7e7e6a3822015a110bf53df7e3e66c",
+    "tag": "latest",
+    "source_url": "https://cgr.dev/v2/chainguard/minio/manifests/latest",
+    "digest": "sha256:29bbe439d3a3c41afac869973c08a70b1a7e7e6a3822015a110bf53df7e3e66c",
+    "document": {
+      "schemaVersion": 2,
+      "mediaType": "application/vnd.oci.image.index.v1+json",
+      "manifests": [
+        {
+          "mediaType": "application/vnd.oci.image.manifest.v1+json",
+          "size": 2490,
+          "digest": "sha256:6b0c9ed2d0d4b14639e6d533586e8bddc1555d5ad73863d124d4338ddd452812",
+          "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+          },
+          "artifactType": "application/vnd.oci.image.config.v1+json"
+        },
+        {
+          "mediaType": "application/vnd.oci.image.manifest.v1+json",
+          "size": 2490,
+          "digest": "sha256:30b58d53ec9787abaf4e21ed4e661e7d8f51300f373728ba1e9a887860b62452",
+          "platform": {
+            "architecture": "arm64",
+            "os": "linux"
+          },
+          "artifactType": "application/vnd.oci.image.config.v1+json"
+        }
+      ],
+      "annotations": {
+        "dev.chainguard.image.title": "minio",
+        "dev.chainguard.package.main": "",
+        "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+        "org.opencontainers.image.created": "2026-09-15T18:01:16Z",
+        "org.opencontainers.image.source": "https://github.com/chainguard-images/images/tree/main/images/minio",
+        "org.opencontainers.image.title": "minio",
+        "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/minio/overview",
+        "org.opencontainers.image.vendor": "Chainguard"
+      }
+    },
+    "retrieved_at": "2026-09-16T02:47:44.172079+00:00"
+  },
+  "uv": {
+    "image": "ghcr.io/astral-sh/uv:0.12.15@sha256:62f8c047d0a0e9ece6b53fc63df902585a67a47a7f318ddec4a37db586edc8e3",
+    "tag": "0.12.15",
+    "source_url": "https://ghcr.io/v2/astral-sh/uv/manifests/0.12.15",
+    "digest": "sha256:62f8c047d0a0e9ece6b53fc63df902585a67a47a7f318ddec4a37db586edc8e3",
+    "document": {
+      "schemaVersion": 2,
+      "mediaType": "application/vnd.oci.image.index.v1+json",
+      "manifests": [
+        {
+          "mediaType": "application/vnd.oci.image.manifest.v1+json",
+          "digest": "sha256:68224c7eb575bc13e4723f8831331db68555125fac3939fdde78cdb6000667ad",
+          "size": 669,
+          "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+          }
+        },
+        {
+          "mediaType": "application/vnd.oci.image.manifest.v1+json",
+          "digest": "sha256:6326e7d4e15bfda7ae6c496b95493ce0d33dfe6df8bcfcf3ed295a020130f0f0",
+          "size": 841,
+          "annotations": {
+            "vnd.docker.reference.digest": "sha256:68224c7eb575bc13e4723f8831331db68555125fac3939fdde78cdb6000667ad",
+            "vnd.docker.reference.type": "attestation-manifest"
+          },
+          "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+          }
+        },
+        {
+          "mediaType": "application/vnd.oci.image.manifest.v1+json",
+          "digest": "sha256:0437fac418c701b4fbbfa3afce633fb439a97631bb74a912325682d2de59f082",
+          "size": 669,
+          "platform": {
+            "architecture": "arm64",
+            "os": "linux"
+          }
+        },
+        {
+          "mediaType": "application/vnd.oci.image.manifest.v1+json",
+          "digest": "sha256:a6c294432c81094d79168ef7bea1ab1db132481dda9d274709846b5b00fc2b2a",
+          "size": 841,
+          "annotations": {
+            "vnd.docker.reference.digest": "sha256:0437fac418c701b4fbbfa3afce633fb439a97631bb74a912325682d2de59f082",
+            "vnd.docker.reference.type": "attestation-manifest"
+          },
+          "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+          }
+        }
+      ],
+      "annotations": {
+        "org.opencontainers.image.created": "2026-09-15T11:25:03.659Z",
+        "org.opencontainers.image.description": "An extremely fast Python package and project manager, written in Rust.",
+        "org.opencontainers.image.licenses": "Apache-2.0",
+        "org.opencontainers.image.revision": "d35f1f2703b4a9cefbfa7fc21164e3ca4fcab933",
+        "org.opencontainers.image.source": "https://github.com/astral-sh/uv",
+        "org.opencontainers.image.title": "uv",
+        "org.opencontainers.image.url": "https://github.com/astral-sh/uv",
+        "org.opencontainers.image.version": "0.12.15"
+      }
+    },
+    "retrieved_at": "2026-09-16T02:48:15.771866+00:00"
+  },
+  "collector": {
+    "image": "ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector:0.160.0@sha256:e495787f07dbe432ce763ebaf5bc3d113850e9eee2250ade7a3da6a882d0d69a",
+    "tag": "0.160.0",
+    "source_url": "https://ghcr.io/v2/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector/manifests/0.160.0",
+    "digest": "sha256:e495787f07dbe432ce763ebaf5bc3d113850e9eee2250ade7a3da6a882d0d69a",
+    "document": {
+      "schemaVersion": 2,
+      "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+      "manifests": [
+        {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "size": 946,
+          "digest": "sha256:0e5de4ea2076f13e8a471411403ba49f9dda49f4e07962cad4f380fc7e667f01",
+          "platform": {
+            "architecture": "386",
+            "os": "linux"
+          }
+        },
+        {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "size": 946,
+          "digest": "sha256:30619e2a6e7ec84debb478a60ffecdcf493a68d8206120c4a4b01b83f31ea3e4",
+          "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+          }
+        },
+        {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "size": 946,
+          "digest": "sha256:bf90177c2101226c560dce26cf8bbb69ea24890384ed89fd116dc9b2e28de28a",
+          "platform": {
+            "architecture": "arm64",
+            "os": "linux"
+          }
+        },
+        {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "size": 946,
+          "digest": "sha256:ce54743622b9d92fe46018f27bf00f0ccc4a0c9ff805a9d5e285aaf8254599cc",
+          "platform": {
+            "architecture": "arm",
+            "os": "linux",
+            "variant": "v7"
+          }
+        },
+        {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "size": 946,
+          "digest": "sha256:8b3228d4c1dd6535820b7a1cf68194ded2c8d6ecf3729baea24a7a98923b2056",
+          "platform": {
+            "architecture": "ppc64le",
+            "os": "linux"
+          }
+        },
+        {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "size": 946,
+          "digest": "sha256:ef864328c958001b3cccb311e04915c9097c7d896ae569c9b1770393a6f39e44",
+          "platform": {
+            "architecture": "riscv64",
+            "os": "linux"
+          }
+        },
+        {
+          "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+          "size": 946,
+          "digest": "sha256:0fe01b9c3a9e12545445e0a116c2b5dcf98d698c2c51f6b1f00a4e8cb9eb809f",
+          "platform": {
+            "architecture": "s390x",
+            "os": "linux"
+          }
+        }
+      ]
+    },
+    "retrieved_at": "2026-09-16T02:48:23.401903+00:00"
+  },
+  "litellm-stable": {
+    "image": "ghcr.io/berriai/litellm:main-stable@sha256:d295634e09c648dcdb72c4cc2dd226f5fb87823a73e88cbbed6f205e4deb044b",
+    "tag": "main-stable",
+    "source_url": "https://ghcr.io/v2/berriai/litellm/manifests/main-stable",
+    "digest": "sha256:d295634e09c648dcdb72c4cc2dd226f5fb87823a73e88cbbed6f205e4deb044b",
+    "document": {
+      "schemaVersion": 2,
+      "mediaType": "application/vnd.oci.image.index.v1+json",
+      "manifests": [
+        {
+          "mediaType": "application/vnd.oci.image.manifest.v1+json",
+          "digest": "sha256:266180fbdfc833c0e16a8c546e1cc814e5854eefd6523afc133416388efdf3ff",
+          "size": 4483,
+          "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+          }
+        },
+        {
+          "mediaType": "application/vnd.oci.image.manifest.v1+json",
+          "digest": "sha256:03f02baed49deaa298bd18ffabc9a0ffaa88e25d5c331c24d93f86b8736162ab",
+          "size": 838,
+          "annotations": {
+            "vnd.docker.reference.digest": "sha256:266180fbdfc833c0e16a8c546e1cc814e5854eefd6523afc133416388efdf3ff",
+            "vnd.docker.reference.type": "attestation-manifest"
+          },
+          "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+          }
+        },
+        {
+          "mediaType": "application/vnd.oci.image.manifest.v1+json",
+          "digest": "sha256:a4a773c7c7374fde182cb60e360960093bf965553e3e1055a5ac50c55385f82c",
+          "size": 4484,
+          "platform": {
+            "architecture": "arm64",
+            "os": "linux"
+          }
+        },
+        {
+          "mediaType": "application/vnd.oci.image.manifest.v1+json",
+          "digest": "sha256:74a58084cfcef52eef59dab0baf096f303a432d24c03dfffb66fda96b120237f",
+          "size": 838,
+          "annotations": {
+            "vnd.docker.reference.digest": "sha256:a4a773c7c7374fde182cb60e360960093bf965553e3e1055a5ac50c55385f82c",
+            "vnd.docker.reference.type": "attestation-manifest"
+          },
+          "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+          }
+        }
+      ]
+    },
+    "retrieved_at": "2026-09-16T02:49:41.151759+00:00",
+    "config_evidence": {
+      "source_url": "https://ghcr.io/v2/berriai/litellm/blobs/sha256:4f7d3bcac0f79c352e152968c416c086d3751d636c1171b03d25798ea5576601",
+      "digest": "sha256:4f7d3bcac0f79c352e152968c416c086d3751d636c1171b03d25798ea5576601",
+      "document": {
+        "architecture": "amd64",
+        "author": "github.com/chainguard-dev/apko",
+        "config": {
+          "User": "root",
+          "ExposedPorts": {
+            "4000/tcp": {}
+          },
+          "Env": [
+            "PATH=/app/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin",
+            "SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt",
+            "PRISMA_BINARY_CACHE_DIR=/opt/prisma/binaries",
+            "PRISMA_CLI_PATH=/opt/prisma/binaries/node_modules/.bin/prisma",
+            "PRISMA_CLI_QUERY_ENGINE_TYPE=binary",
+            "PRISMA_OFFLINE_MODE=true"
+          ],
+          "Entrypoint": [
+            "docker/prod_entrypoint.sh"
+          ],
+          "Cmd": [
+            "--port",
+            "4000"
+          ],
+          "WorkingDir": "/app",
+          "Labels": {
+            "dev.chainguard.image.title": "wolfi-base",
+            "dev.chainguard.package.main": "",
+            "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+            "org.opencontainers.image.created": "2026-08-30T12:58:50Z",
+            "org.opencontainers.image.revision": "18243cd7af4c3325165ba68b21379e2719e051c7",
+            "org.opencontainers.image.source": "https://github.com/BerriAI/litellm",
+            "org.opencontainers.image.title": "wolfi-base",
+            "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/wolfi-base/overview",
+            "org.opencontainers.image.vendor": "Chainguard"
+          },
+          "ArgsEscaped": true
+        },
+        "created": "2026-09-14T23:20:37.980082881Z",
+        "history": [
+          {
+            "created": "2026-08-30T12:58:50Z",
+            "created_by": "apko",
+            "author": "apko",
+            "comment": "wolfi-base by Chainguard"
+          },
+          {
+            "created": "2026-08-30T12:58:50Z",
+            "created_by": "apko",
+            "author": "apko",
+            "comment": "wolfi-base by Chainguard"
+          },
+          {
+            "created": "2026-08-30T12:58:50Z",
+            "created_by": "apko",
+            "author": "apko",
+            "comment": "wolfi-base by Chainguard"
+          },
+          {
+            "created": "2026-08-30T12:58:50Z",
+            "created_by": "apko",
+            "author": "apko",
+            "comment": "wolfi-base by Chainguard"
+          },
+          {
+            "created": "2026-08-30T12:58:50Z",
+            "created_by": "apko",
+            "author": "apko",
+            "comment": "wolfi-base by Chainguard"
+          },
+          {
+            "created": "2026-08-30T12:58:50Z",
+            "created_by": "apko",
+            "author": "apko",
+            "comment": "wolfi-base by Chainguard"
+          },
+          {
+            "created": "2026-08-30T12:58:50Z",
+            "created_by": "apko",
+            "author": "apko",
+            "comment": "wolfi-base by Chainguard"
+          },
+          {
+            "created": "2026-08-30T12:58:50Z",
+            "created_by": "apko",
+            "author": "apko",
+            "comment": "wolfi-base by Chainguard"
+          },
+          {
+            "created": "2026-08-30T12:58:50Z",
+            "created_by": "apko",
+            "author": "apko",
+            "comment": "wolfi-base by Chainguard"
+          },
+          {
+            "created": "2026-08-30T12:58:50Z",
+            "created_by": "apko",
+            "author": "apko",
+            "comment": "wolfi-base by Chainguard"
+          },
+          {
+            "created": "2026-08-30T12:58:50Z",
+            "created_by": "apko",
+            "author": "apko",
+            "comment": "wolfi-base by Chainguard"
+          },
+          {
+            "created": "2026-09-10T07:28:51.092634916Z",
+            "created_by": "USER root",
+            "comment": "buildkit.dockerfile.v0",
+            "empty_layer": true
+          },
+          {
+            "created": "2026-09-10T07:28:51.092634916Z",
+            "created_by": "RUN /bin/sh -c echo \"https://packages.wolfi.dev/os\" >> /etc/apk/repositories # buildkit",
+            "comment": "buildkit.dockerfile.v0"
+          },
+          {
+            "created": "2026-09-14T23:16:51.307756688Z",
+            "created_by": "RUN /bin/sh -c apk add --no-cache bash openssl tzdata nodejs python-3.13 libsndfile # buildkit",
+            "comment": "buildkit.dockerfile.v0"
+          },
+          {
+            "created": "2026-09-14T23:16:51.335330311Z",
+            "created_by": "WORKDIR /app",
+            "comment": "buildkit.dockerfile.v0"
+          },
+          {
+            "created": "2026-09-14T23:16:51.335330311Z",
+            "created_by": "ENV PATH=/app/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin PRISMA_BINARY_CACHE_DIR=/opt/prisma/binaries PRISMA_CLI_PATH=/opt/prisma/binaries/node_modules/.bin/prisma PRISMA_CLI_QUERY_ENGINE_TYPE=binary PRISMA_OFFLINE_MODE=true",
+            "comment": "buildkit.dockerfile.v0",
+            "empty_layer": true
+          },
+          {
+            "created": "2026-09-14T23:20:33.459917907Z",
+            "created_by": "COPY /app/.venv /app/.venv # buildkit",
+            "comment": "buildkit.dockerfile.v0"
+          },
+          {
+            "created": "2026-09-14T23:20:33.643125429Z",
+            "created_by": "COPY /app/docker /app/docker # buildkit",
+            "comment": "buildkit.dockerfile.v0"
+          },
+          {
+            "created": "2026-09-14T23:20:33.651952494Z",
+            "created_by": "COPY /app/schema.prisma /app/schema.prisma # buildkit",
+            "comment": "buildkit.dockerfile.v0"
+          },
+          {
+            "created": "2026-09-14T23:20:33.66030741Z",
+            "created_by": "COPY /app/litellm/proxy/prisma_migration.py /app/litellm/proxy/prisma_migration.py # buildkit",
+            "comment": "buildkit.dockerfile.v0"
+          },
+          {
+            "created": "2026-09-14T23:20:33.696405177Z",
+            "created_by": "COPY /app/enterprise /app/enterprise # buildkit",
+            "comment": "buildkit.dockerfile.v0"
+          },
+          {
+            "created": "2026-09-14T23:20:33.769435587Z",
+            "created_by": "COPY /app/litellm-proxy-extras /app/litellm-proxy-extras # buildkit",
+            "comment": "buildkit.dockerfile.v0"
+          },
+          {
+            "created": "2026-09-14T23:20:33.924496719Z",
+            "created_by": "COPY /opt/prisma /opt/prisma # buildkit",
+            "comment": "buildkit.dockerfile.v0"
+          },
+          {
+            "created": "2026-09-14T23:20:37.980082881Z",
+            "created_by": "RUN /bin/sh -c find /app/.venv -type f -path \"*/tornado/test/*\" -delete &&     find /app/.venv -type d -path \"*/tornado/test\" -delete &&     chmod -R a+rX /opt/prisma &&     test -x /opt/prisma/binaries/node_modules/.bin/prisma &&     test -f /opt/prisma/binaries/node_modules/prisma/build/index.js &&     python -c \"from prisma.client import BINARY_PATHS; paths = list(BINARY_PATHS.query_engine.values()); assert paths and all(p.startswith('/opt/prisma/') for p in paths), paths\" # buildkit",
+            "comment": "buildkit.dockerfile.v0"
+          },
+          {
+            "created": "2026-09-14T23:20:37.980082881Z",
+            "created_by": "EXPOSE map[4000/tcp:{}]",
+            "comment": "buildkit.dockerfile.v0",
+            "empty_layer": true
+          },
+          {
+            "created": "2026-09-14T23:20:37.980082881Z",
+            "created_by": "ENTRYPOINT [\"docker/prod_entrypoint.sh\"]",
+            "comment": "buildkit.dockerfile.v0",
+            "empty_layer": true
+          },
+          {
+            "created": "2026-09-14T23:20:37.980082881Z",
+            "created_by": "CMD [\"--port\" \"4000\"]",
+            "comment": "buildkit.dockerfile.v0",
+            "empty_layer": true
+          }
+        ],
+        "os": "linux",
+        "rootfs": {
+          "type": "layers",
+          "diff_ids": [
+            "sha256:ec9d36fbe0453de58e61513470e6c75576b00b4a4d3e94cb5614f16c967b6dbc",
+            "sha256:bd71f8a8130c6f4d36cf5ef0ec0fd463f66c04fbd4b6d51e8d2b5713fbde3d8e",
+            "sha256:f853e0b8057a7d575e174a3a93c8cc98c733719fc4ec68b4375cf22bb9187dd2",
+            "sha256:d691fe338bf4bf69d8b2b798a8443e51a2a9b54ceded2235db0717390945956f",
+            "sha256:c5098588f2a2ff9ffbd45eff4f41cc464812d65d57d0b381abb54cac4766eff8",
+            "sha256:1ab0a42ee02036016dadab036eabf4115441fe5a22ec7c5f535665ceec724234",
+            "sha256:8c9e9af44603bd780adee019f6b5104cb7468472e8cbab224aa770ab97ab2adc",
+            "sha256:91735c5738eab314deb80def19930209d548418895d949c96c0c73b020c12d83",
+            "sha256:44bd43278134ee533303231479316dd19b8b1abf81bf67efb296f7d2c159872d",
+            "sha256:b8195249dcd92d2c0519946f0a9f9d9ec7b88e9a19b5f83bc156103a39d5ab50",
+            "sha256:1de8c57335e34e39d32cb1748673584bac2a5e3a53a702d7072c92cc3c2f5bfb",
+            "sha256:f4aae93cb11db8f7738e869912c6299d91d10294b6beee1ccadcb1d00b97091c",
+            "sha256:281c156ea286ce9db3a5b5e6f7c8c4ba9e56de458dc3fa168c6f042313a1cc4a",
+            "sha256:30af829990e54b22bbedd867e9f3664bb600bcf6daca457a6909f69a51588ad1",
+            "sha256:7fed4246110b05d5875177afe2bad8388a996c3199a1d33b22fd06d0bb932bee",
+            "sha256:91e22fb2ba15fa2b81816b954a4d2eccc110e5cdf7e8e8ca818928e1636fa8ee",
+            "sha256:f4ff48b288cd032085387b63ae4b283ec4b6f17357487352f2ac7eb1499505c3",
+            "sha256:a44c9b5b49184f4de03aa41e959f16b7e10631c24e53cc2429a5f0a397bf41c5",
+            "sha256:21e53a56f748fd2c1b6f642075b80c72e0932aea54a7e60689237b12f7102981",
+            "sha256:07f76bc42e99a7c807484cb3cf76f2b4103d2d5bd7123341cf10846f94759dde",
+            "sha256:d39f33f06472526e3ea26760935ba55147a3c6e51062d32e3fe2b920434bcb45",
+            "sha256:28dd52e014da26d7bda8b7b19409035b16a9b2e337bbc97a5f24248ddbfbe965"
+          ]
+        }
+      },
+      "retrieved_at": "2026-09-16T02:50:41.707422+00:00"
+    }
+  },
+  "python": {
+    "image": "docker.io/library/python:3.11.16-slim-bookworm@sha256:528257d48c1da0dcecc2e725d1ae34498d60c965f1241e39cd6a85a8859bdf84",
+    "tag": "3.11.16-slim-bookworm",
+    "digest": "sha256:528257d48c1da0dcecc2e725d1ae34498d60c965f1241e39cd6a85a8859bdf84",
+    "source_url": "https://hub.docker.com/v2/repositories/library/python/tags?page_size=25&name=3.11.",
+    "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+    "platforms": [
+      "amd64",
+      "ppc64le",
+      "386",
+      "arm",
+      "arm64",
+      "unknown",
+      "unknown",
+      "unknown",
+      "unknown",
+      "unknown"
+    ]
+  },
+  "postgres": {
+    "image": "docker.io/library/postgres:17.11-bookworm@sha256:051f7b7b3abdd564d5d1bd1e8c4b9c1b6e77087d1dd22020ede611c096a272e0",
+    "tag": "17.11-bookworm",
+    "digest": "sha256:051f7b7b3abdd564d5d1bd1e8c4b9c1b6e77087d1dd22020ede611c096a272e0",
+    "source_url": "https://hub.docker.com/v2/repositories/library/postgres/tags?page_size=25&name=17.",
+    "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+    "platforms": [
+      "amd64",
+      "ppc64le",
+      "386",
+      "arm",
+      "arm64",
+      "unknown",
+      "unknown",
+      "unknown",
+      "unknown",
+      "unknown"
+    ]
+  },
+  "redis": {
+    "image": "docker.io/library/redis:7.4.11-bookworm@sha256:71da9275c5f3fcb97d0fa0c8c5b36cc995327265420f17a04bfd544f458059f7",
+    "tag": "7.4.11-bookworm",
+    "digest": "sha256:71da9275c5f3fcb97d0fa0c8c5b36cc995327265420f17a04bfd544f458059f7",
+    "source_url": "https://hub.docker.com/v2/repositories/library/redis/tags?page_size=25&name=7.4.",
+    "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+    "platforms": [
+      "amd64",
+      "ppc64le",
+      "386",
+      "arm",
+      "arm64",
+      "unknown",
+      "unknown",
+      "unknown",
+      "unknown",
+      "unknown"
+    ]
+  },
+  "clickhouse": {
+    "image": "docker.io/clickhouse/clickhouse-server:25.12.11.4@sha256:8a790dd3468db22b1d4e7b18a176f378ff5ff6053b9c48dd4ea1fa71a24c5ba6",
+    "tag": "25.12.11.4",
+    "digest": "sha256:8a790dd3468db22b1d4e7b18a176f378ff5ff6053b9c48dd4ea1fa71a24c5ba6",
+    "source_url": "https://hub.docker.com/v2/repositories/clickhouse/clickhouse-server/tags?page_size=25&name=25.12.",
+    "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+    "platforms": [
+      "amd64",
+      "arm64",
+      "unknown",
+      "unknown"
+    ]
+  },
+  "phoenix": {
+    "image": "docker.io/arizephoenix/phoenix:20.12.0-nonroot@sha256:6bac6c416b61b7fbe97a7ad48fd48e7fef940685a1e517418d4bc24b65791348",
+    "tag": "20.12.0-nonroot",
+    "digest": "sha256:6bac6c416b61b7fbe97a7ad48fd48e7fef940685a1e517418d4bc24b65791348",
+    "source_url": "https://hub.docker.com/v2/repositories/arizephoenix/phoenix/tags?page_size=25&name=20.12.0",
+    "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+    "platforms": [
+      "amd64",
+      "arm64"
+    ]
+  }
+}

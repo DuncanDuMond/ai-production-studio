@@ -1,0 +1,394 @@
+{
+  "schema_version": 1,
+  "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+  "scope": "Exactly the ten requested repositories. Release observations are NOT the installed Python SDK versions; uv.lock owns those. No license/legal warranty.",
+  "upstreams": [
+    {
+      "id": "otel",
+      "requested_repo_url": "https://github.com/open-telemetry/opentelemetry-collector",
+      "canonical_repo_url": "https://github.com/open-telemetry/opentelemetry-collector",
+      "observed_release": "v0.161.0",
+      "release_url": "https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.161.0",
+      "release_published_at": "2026-09-14T22:49:14Z",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "docs_url": "https://opentelemetry.io",
+      "repository_api_url": "https://api.github.com/repos/open-telemetry/opentelemetry-collector",
+      "release_api_url": "https://api.github.com/repos/open-telemetry/opentelemetry-collector/releases/latest",
+      "readme_source_url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector/v0.161.0/README.md",
+      "readme_snapshot": "deploy/evidence/otel-readme.md",
+      "license": {
+        "expression_description": "Apache-2.0",
+        "classification": "open-source",
+        "notes": "Apache License 2.0.",
+        "source_url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector/v0.161.0/LICENSE",
+        "snapshot": "deploy/evidence/otel-license.md",
+        "github_detected_spdx": "Apache-2.0"
+      }
+    },
+    {
+      "id": "langfuse",
+      "requested_repo_url": "https://github.com/langfuse/langfuse",
+      "canonical_repo_url": "https://github.com/langfuse/langfuse",
+      "observed_release": "v4.36.1",
+      "release_url": "https://github.com/langfuse/langfuse/releases/tag/v4.36.1",
+      "release_published_at": "2026-09-15T09:00:35Z",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "docs_url": "https://langfuse.com",
+      "repository_api_url": "https://api.github.com/repos/langfuse/langfuse",
+      "release_api_url": "https://api.github.com/repos/langfuse/langfuse/releases/latest",
+      "readme_source_url": "https://raw.githubusercontent.com/langfuse/langfuse/v4.36.1/README.md",
+      "readme_snapshot": "deploy/evidence/langfuse-readme.md",
+      "license": {
+        "expression_description": "MIT AND LicenseRef-Langfuse-Enterprise",
+        "classification": "mixed",
+        "notes": "MIT for core; ee/, web/src/ee/ and worker/src/ee/ are separately licensed under ee/LICENSE. Do not describe the entire repository as MIT.",
+        "source_url": "https://raw.githubusercontent.com/langfuse/langfuse/v4.36.1/LICENSE",
+        "snapshot": "deploy/evidence/langfuse-license.md",
+        "github_detected_spdx": "NOASSERTION"
+      }
+    },
+    {
+      "id": "phoenix",
+      "requested_repo_url": "https://github.com/Arize-ai/phoenix",
+      "canonical_repo_url": "https://github.com/Arize-ai/phoenix",
+      "observed_release": "arize-phoenix-v20.12.0",
+      "release_url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v20.12.0",
+      "release_published_at": "2026-09-14T20:34:55Z",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "docs_url": "https://arize.com/docs/phoenix",
+      "repository_api_url": "https://api.github.com/repos/Arize-ai/phoenix",
+      "release_api_url": "https://api.github.com/repos/Arize-ai/phoenix/releases/latest",
+      "readme_source_url": "https://raw.githubusercontent.com/Arize-ai/phoenix/arize-phoenix-v20.12.0/README.md",
+      "readme_snapshot": "deploy/evidence/phoenix-readme.md",
+      "license": {
+        "expression_description": "Elastic-2.0",
+        "classification": "source-available",
+        "notes": "Elastic License 2.0 (ELv2), not an OSI-approved open-source license. Restrictions include offering a hosted or managed service exposing a substantial set of features. Review before redistribution or hosted commercialization.",
+        "source_url": "https://raw.githubusercontent.com/Arize-ai/phoenix/arize-phoenix-v20.12.0/LICENSE",
+        "snapshot": "deploy/evidence/phoenix-license.md",
+        "github_detected_spdx": "NOASSERTION"
+      }
+    },
+    {
+      "id": "ragas",
+      "requested_repo_url": "https://github.com/vibrantlabsai/ragas",
+      "canonical_repo_url": "https://github.com/vibrantlabsai/ragas",
+      "observed_release": "v0.4.3",
+      "release_url": "https://github.com/vibrantlabsai/ragas/releases/tag/v0.4.3",
+      "release_published_at": "2026-01-13T17:47:29Z",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "docs_url": "https://docs.ragas.io",
+      "repository_api_url": "https://api.github.com/repos/vibrantlabsai/ragas",
+      "release_api_url": "https://api.github.com/repos/vibrantlabsai/ragas/releases/latest",
+      "readme_source_url": "https://raw.githubusercontent.com/vibrantlabsai/ragas/v0.4.3/README.md",
+      "readme_snapshot": "deploy/evidence/ragas-readme.md",
+      "license": {
+        "expression_description": "Apache-2.0",
+        "classification": "open-source",
+        "notes": "Apache License 2.0.",
+        "source_url": "https://raw.githubusercontent.com/vibrantlabsai/ragas/v0.4.3/LICENSE",
+        "snapshot": "deploy/evidence/ragas-license.md",
+        "github_detected_spdx": "Apache-2.0"
+      }
+    },
+    {
+      "id": "deepeval",
+      "requested_repo_url": "https://github.com/confident-ai/deepeval",
+      "canonical_repo_url": "https://github.com/confident-ai/deepeval",
+      "observed_release": "python-v4.2.0",
+      "release_url": "https://github.com/confident-ai/deepeval/releases/tag/python-v4.2.0",
+      "release_published_at": "2026-08-24T21:56:54Z",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "docs_url": "https://deepeval.com",
+      "repository_api_url": "https://api.github.com/repos/confident-ai/deepeval",
+      "release_api_url": "https://api.github.com/repos/confident-ai/deepeval/releases/latest",
+      "readme_source_url": "https://raw.githubusercontent.com/confident-ai/deepeval/python-v4.2.0/README.md",
+      "readme_snapshot": "deploy/evidence/deepeval-readme.md",
+      "license": {
+        "expression_description": "Apache-2.0",
+        "classification": "open-source",
+        "notes": "Apache License 2.0.",
+        "source_url": "https://raw.githubusercontent.com/confident-ai/deepeval/python-v4.2.0/LICENSE.md",
+        "snapshot": "deploy/evidence/deepeval-license.md",
+        "github_detected_spdx": "Apache-2.0"
+      }
+    },
+    {
+      "id": "guardrails",
+      "requested_repo_url": "https://github.com/guardrails-ai/guardrails",
+      "canonical_repo_url": "https://github.com/guardrails-ai/guardrails",
+      "observed_release": "v0.11.0",
+      "release_url": "https://github.com/guardrails-ai/guardrails/releases/tag/v0.11.0",
+      "release_published_at": "2026-08-14T14:22:32Z",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "docs_url": "https://www.guardrailsai.com/docs",
+      "repository_api_url": "https://api.github.com/repos/guardrails-ai/guardrails",
+      "release_api_url": "https://api.github.com/repos/guardrails-ai/guardrails/releases/latest",
+      "readme_source_url": "https://raw.githubusercontent.com/guardrails-ai/guardrails/v0.11.0/README.md",
+      "readme_snapshot": "deploy/evidence/guardrails-readme.md",
+      "license": {
+        "expression_description": "Apache-2.0",
+        "classification": "open-source",
+        "notes": "Repository is Apache-2.0; separately installed Hub validators can have their own licenses and remote-service requirements.",
+        "source_url": "https://raw.githubusercontent.com/guardrails-ai/guardrails/v0.11.0/LICENSE",
+        "snapshot": "deploy/evidence/guardrails-license.md",
+        "github_detected_spdx": "Apache-2.0"
+      }
+    },
+    {
+      "id": "pydantic-ai",
+      "requested_repo_url": "https://github.com/pydantic/pydantic-ai",
+      "canonical_repo_url": "https://github.com/pydantic/pydantic-ai",
+      "observed_release": "v2.43.0",
+      "release_url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.43.0",
+      "release_published_at": "2026-09-12T00:54:42Z",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "docs_url": "https://pydantic.dev/pydantic-ai",
+      "repository_api_url": "https://api.github.com/repos/pydantic/pydantic-ai",
+      "release_api_url": "https://api.github.com/repos/pydantic/pydantic-ai/releases/latest",
+      "readme_source_url": "https://raw.githubusercontent.com/pydantic/pydantic-ai/v2.43.0/README.md",
+      "readme_snapshot": "deploy/evidence/pydantic-ai-readme.md",
+      "license": {
+        "expression_description": "MIT",
+        "classification": "open-source",
+        "notes": "MIT License.",
+        "source_url": "https://raw.githubusercontent.com/pydantic/pydantic-ai/v2.43.0/LICENSE",
+        "snapshot": "deploy/evidence/pydantic-ai-license.md",
+        "github_detected_spdx": "MIT"
+      }
+    },
+    {
+      "id": "instructor",
+      "requested_repo_url": "https://github.com/567-labs/instructor",
+      "canonical_repo_url": "https://github.com/567-labs/instructor",
+      "observed_release": "v1.17.0",
+      "release_url": "https://github.com/567-labs/instructor/releases/tag/v1.17.0",
+      "release_published_at": "2026-09-09T02:25:36Z",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "docs_url": "https://python.useinstructor.com/",
+      "repository_api_url": "https://api.github.com/repos/567-labs/instructor",
+      "release_api_url": "https://api.github.com/repos/567-labs/instructor/releases/latest",
+      "readme_source_url": "https://raw.githubusercontent.com/567-labs/instructor/v1.17.0/README.md",
+      "readme_snapshot": "deploy/evidence/instructor-readme.md",
+      "license": {
+        "expression_description": "MIT",
+        "classification": "open-source",
+        "notes": "MIT License.",
+        "source_url": "https://raw.githubusercontent.com/567-labs/instructor/v1.17.0/LICENSE",
+        "snapshot": "deploy/evidence/instructor-license.md",
+        "github_detected_spdx": "MIT"
+      }
+    },
+    {
+      "id": "litellm",
+      "requested_repo_url": "https://github.com/BerriAI/litellm",
+      "canonical_repo_url": "https://github.com/BerriAI/litellm",
+      "observed_release": "v1.101.0",
+      "release_url": "https://github.com/BerriAI/litellm/releases/tag/v1.101.0",
+      "release_published_at": "2026-09-15T03:41:59Z",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "docs_url": "https://docs.litellm.ai/docs/",
+      "repository_api_url": "https://api.github.com/repos/BerriAI/litellm",
+      "release_api_url": "https://api.github.com/repos/BerriAI/litellm/releases/latest",
+      "readme_source_url": "https://raw.githubusercontent.com/BerriAI/litellm/v1.101.0/README.md",
+      "readme_snapshot": "deploy/evidence/litellm-readme.md",
+      "license": {
+        "expression_description": "MIT AND LicenseRef-LiteLLM-Enterprise",
+        "classification": "mixed",
+        "notes": "MIT for core; enterprise/ is separately licensed under enterprise/LICENSE. Container inclusion does not grant enterprise feature rights.",
+        "source_url": "https://raw.githubusercontent.com/BerriAI/litellm/v1.101.0/LICENSE",
+        "snapshot": "deploy/evidence/litellm-license.md",
+        "github_detected_spdx": "NOASSERTION"
+      }
+    },
+    {
+      "id": "haystack",
+      "requested_repo_url": "https://github.com/deepset-ai/haystack",
+      "canonical_repo_url": "https://github.com/deepset-ai/haystack",
+      "observed_release": "v3.1.1",
+      "release_url": "https://github.com/deepset-ai/haystack/releases/tag/v3.1.1",
+      "release_published_at": "2026-09-03T09:27:52Z",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "docs_url": "https://haystack.deepset.ai",
+      "repository_api_url": "https://api.github.com/repos/deepset-ai/haystack",
+      "release_api_url": "https://api.github.com/repos/deepset-ai/haystack/releases/latest",
+      "readme_source_url": "https://raw.githubusercontent.com/deepset-ai/haystack/v3.1.1/README.md",
+      "readme_snapshot": "deploy/evidence/haystack-readme.md",
+      "license": {
+        "expression_description": "Apache-2.0",
+        "classification": "open-source",
+        "notes": "Apache License 2.0; hosted deepset services are separate.",
+        "source_url": "https://raw.githubusercontent.com/deepset-ai/haystack/v3.1.1/LICENSE",
+        "snapshot": "deploy/evidence/haystack-license.md",
+        "github_detected_spdx": "Apache-2.0"
+      }
+    }
+  ],
+  "images": [
+    {
+      "component": "langfuse",
+      "reference": "docker.langfuse.com/langfuse/langfuse:4.36.1@sha256:20f0edcf0d13018d3bfa43b8d1e173fdd66e8de44e34e5d47a003b5b260be17b",
+      "digest": "sha256:20f0edcf0d13018d3bfa43b8d1e173fdd66e8de44e34e5d47a003b5b260be17b",
+      "source_url": "https://docker.langfuse.com/v2/langfuse/langfuse/manifests/4.36.1",
+      "retrieved_at": "2026-09-16T02:47:38.253456+00:00",
+      "notes": ""
+    },
+    {
+      "component": "worker",
+      "reference": "docker.langfuse.com/langfuse/langfuse-worker:4.36.1@sha256:20d61e4d7c111e1ef7b428aac2e23277e8e27184728f8b4f648d9aae864e4992",
+      "digest": "sha256:20d61e4d7c111e1ef7b428aac2e23277e8e27184728f8b4f648d9aae864e4992",
+      "source_url": "https://docker.langfuse.com/v2/langfuse/langfuse-worker/manifests/4.36.1",
+      "retrieved_at": "2026-09-16T02:47:42.136760+00:00",
+      "notes": ""
+    },
+    {
+      "component": "minio",
+      "reference": "cgr.dev/chainguard/minio:latest@sha256:29bbe439d3a3c41afac869973c08a70b1a7e7e6a3822015a110bf53df7e3e66c",
+      "digest": "sha256:29bbe439d3a3c41afac869973c08a70b1a7e7e6a3822015a110bf53df7e3e66c",
+      "source_url": "https://cgr.dev/v2/chainguard/minio/manifests/latest",
+      "retrieved_at": "2026-09-16T02:47:44.172079+00:00",
+      "notes": "Digest resolved from latest; immutable digest, not a mutable deployment pin. Upstream Langfuse v4.36.1 uses this image distribution."
+    },
+    {
+      "component": "uv",
+      "reference": "ghcr.io/astral-sh/uv:0.12.15@sha256:62f8c047d0a0e9ece6b53fc63df902585a67a47a7f318ddec4a37db586edc8e3",
+      "digest": "sha256:62f8c047d0a0e9ece6b53fc63df902585a67a47a7f318ddec4a37db586edc8e3",
+      "source_url": "https://ghcr.io/v2/astral-sh/uv/manifests/0.12.15",
+      "retrieved_at": "2026-09-16T02:48:15.771866+00:00",
+      "notes": ""
+    },
+    {
+      "component": "collector",
+      "reference": "ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector:0.160.0@sha256:e495787f07dbe432ce763ebaf5bc3d113850e9eee2250ade7a3da6a882d0d69a",
+      "digest": "sha256:e495787f07dbe432ce763ebaf5bc3d113850e9eee2250ade7a3da6a882d0d69a",
+      "source_url": "https://ghcr.io/v2/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector/manifests/0.160.0",
+      "retrieved_at": "2026-09-16T02:48:23.401903+00:00",
+      "notes": "Core 0.160.0 image exists; upstream 0.161.0 release observed but image manifest returned 404, so not guessed."
+    },
+    {
+      "component": "litellm-stable",
+      "reference": "ghcr.io/berriai/litellm:main-stable@sha256:d295634e09c648dcdb72c4cc2dd226f5fb87823a73e88cbbed6f205e4deb044b",
+      "digest": "sha256:d295634e09c648dcdb72c4cc2dd226f5fb87823a73e88cbbed6f205e4deb044b",
+      "source_url": "https://ghcr.io/v2/berriai/litellm/manifests/main-stable",
+      "retrieved_at": "2026-09-16T02:49:41.151759+00:00",
+      "notes": "Digest resolved from main-stable; OCI revision points to pyproject version 1.101.0."
+    },
+    {
+      "component": "python",
+      "reference": "docker.io/library/python:3.11.16-slim-bookworm@sha256:528257d48c1da0dcecc2e725d1ae34498d60c965f1241e39cd6a85a8859bdf84",
+      "digest": "sha256:528257d48c1da0dcecc2e725d1ae34498d60c965f1241e39cd6a85a8859bdf84",
+      "source_url": "https://hub.docker.com/v2/repositories/library/python/tags?page_size=25&name=3.11.",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "notes": ""
+    },
+    {
+      "component": "postgres",
+      "reference": "docker.io/library/postgres:17.11-bookworm@sha256:051f7b7b3abdd564d5d1bd1e8c4b9c1b6e77087d1dd22020ede611c096a272e0",
+      "digest": "sha256:051f7b7b3abdd564d5d1bd1e8c4b9c1b6e77087d1dd22020ede611c096a272e0",
+      "source_url": "https://hub.docker.com/v2/repositories/library/postgres/tags?page_size=25&name=17.",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "notes": ""
+    },
+    {
+      "component": "redis",
+      "reference": "docker.io/library/redis:7.4.11-bookworm@sha256:71da9275c5f3fcb97d0fa0c8c5b36cc995327265420f17a04bfd544f458059f7",
+      "digest": "sha256:71da9275c5f3fcb97d0fa0c8c5b36cc995327265420f17a04bfd544f458059f7",
+      "source_url": "https://hub.docker.com/v2/repositories/library/redis/tags?page_size=25&name=7.4.",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "notes": ""
+    },
+    {
+      "component": "clickhouse",
+      "reference": "docker.io/clickhouse/clickhouse-server:25.12.11.4@sha256:8a790dd3468db22b1d4e7b18a176f378ff5ff6053b9c48dd4ea1fa71a24c5ba6",
+      "digest": "sha256:8a790dd3468db22b1d4e7b18a176f378ff5ff6053b9c48dd4ea1fa71a24c5ba6",
+      "source_url": "https://hub.docker.com/v2/repositories/clickhouse/clickhouse-server/tags?page_size=25&name=25.12.",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "notes": ""
+    },
+    {
+      "component": "phoenix",
+      "reference": "docker.io/arizephoenix/phoenix:20.12.0-nonroot@sha256:6bac6c416b61b7fbe97a7ad48fd48e7fef940685a1e517418d4bc24b65791348",
+      "digest": "sha256:6bac6c416b61b7fbe97a7ad48fd48e7fef940685a1e517418d4bc24b65791348",
+      "source_url": "https://hub.docker.com/v2/repositories/arizephoenix/phoenix/tags?page_size=25&name=20.12.0",
+      "retrieved_at": "2026-09-16T02:43:12.817029+00:00",
+      "notes": ""
+    }
+  ],
+  "documentation_sources": [
+    {
+      "name": "langfuse-compose",
+      "url": "https://raw.githubusercontent.com/langfuse/langfuse/v4.36.1/docker-compose.yml"
+    },
+    {
+      "name": "collector-core-manifest",
+      "url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector-releases/v0.161.0/distributions/otelcol/manifest.yaml"
+    },
+    {
+      "name": "langfuse-otel",
+      "url": "https://langfuse.com/integrations/native/opentelemetry"
+    },
+    {
+      "name": "langfuse-docker",
+      "url": "https://langfuse.com/self-hosting/deployment/docker-compose"
+    },
+    {
+      "name": "phoenix-docker",
+      "url": "https://arize.com/docs/phoenix/self-hosting/deployment-options/docker"
+    },
+    {
+      "name": "litellm-docker",
+      "url": "https://docs.litellm.ai/docs/proxy/deploy"
+    },
+    {
+      "name": "collector-releases-readme",
+      "url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector-releases/v0.161.0/README.md"
+    },
+    {
+      "name": "litellm-release-compose",
+      "url": "https://raw.githubusercontent.com/BerriAI/litellm/v1.101.0/docker-compose.yml"
+    },
+    {
+      "name": "uv-release",
+      "url": "https://api.github.com/repos/astral-sh/uv/releases/latest"
+    },
+    {
+      "name": "phoenix-env",
+      "url": "https://raw.githubusercontent.com/Arize-ai/phoenix/arize-phoenix-v20.12.0/src/phoenix/config.py"
+    },
+    {
+      "name": "core-readme",
+      "url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector-releases/v0.161.0/distributions/otelcol/README.md"
+    },
+    {
+      "name": "core-pinned-manifest",
+      "url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector-releases/v0.160.0/distributions/otelcol/manifest.yaml"
+    },
+    {
+      "name": "litellm-image-version",
+      "url": "https://raw.githubusercontent.com/BerriAI/litellm/18243cd7af4c3325165ba68b21379e2719e051c7/pyproject.toml"
+    },
+    {
+      "name": "phoenix-image",
+      "url": "https://raw.githubusercontent.com/Arize-ai/phoenix/arize-phoenix-v20.12.0/Dockerfile"
+    },
+    {
+      "name": "litellm-master-auth",
+      "url": "https://raw.githubusercontent.com/BerriAI/litellm/18243cd7af4c3325165ba68b21379e2719e051c7/litellm/proxy/auth/user_api_key_auth.py"
+    },
+    {
+      "name": "compose-schema",
+      "url": "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"
+    }
+  ],
+  "ci_actions": {
+    "actions/checkout": {
+      "sha": "11d5960a326750d5838078e36cf38b85af677262",
+      "url": "https://api.github.com/repos/actions/checkout/git/ref/tags/v4"
+    },
+    "actions/setup-python": {
+      "sha": "a26af69be951a213d495a4c3e4e4022e16d87065",
+      "url": "https://api.github.com/repos/actions/setup-python/git/ref/tags/v5"
+    }
+  },
+  "validation_boundary": "Official repo, release, license, documentation and registry metadata fetched. No layers downloaded; no Docker engine, build, container startup or end-to-end OTLP delivery was exercised."
+}

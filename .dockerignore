@@ -1,0 +1,9 @@
+# An allowlist: credentials, traces, .git, local data and host venv never enter the context.
+**
+!Dockerfile
+!pyproject.toml
+!uv.lock
+!studio/
+!studio/**
+studio/**/__pycache__/
+studio/**/*.pyc

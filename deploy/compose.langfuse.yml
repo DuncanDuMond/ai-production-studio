@@ -1,0 +1,280 @@
+# Local-only, opt-in deployment. See docs/DEPLOYMENT.md.
+services:
+  langfuse-web:
+    image: docker.langfuse.com/langfuse/langfuse:4.36.1@sha256:20f0edcf0d13018d3bfa43b8d1e173fdd66e8de44e34e5d47a003b5b260be17b
+    profiles:
+    - langfuse
+    restart: unless-stopped
+    mem_limit: 1g
+    security_opt:
+    - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+    ports:
+    - 127.0.0.1:3000:3000
+    depends_on: &id001
+      postgres:
+        condition: service_healthy
+      clickhouse:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    environment:
+      NEXTAUTH_URL: http://127.0.0.1:3000
+      DATABASE_URL: postgresql://langfuse:${LANGFUSE_POSTGRES_PASSWORD:?Set LANGFUSE_POSTGRES_PASSWORD
+        in the private .env file}@postgres:5432/langfuse
+      SALT: ${LANGFUSE_SALT:?Set LANGFUSE_SALT in the private .env file}
+      ENCRYPTION_KEY: ${LANGFUSE_ENCRYPTION_KEY:?Set LANGFUSE_ENCRYPTION_KEY in the
+        private .env file}
+      TELEMETRY_ENABLED: 'false'
+      LANGFUSE_ENABLE_EXPERIMENTAL_FEATURES: 'false'
+      LANGFUSE_IN_APP_AGENT_ENABLED: 'false'
+      CLICKHOUSE_MIGRATION_URL: clickhouse://clickhouse:9000
+      CLICKHOUSE_URL: http://clickhouse:8123
+      CLICKHOUSE_USER: langfuse
+      CLICKHOUSE_PASSWORD: ${LANGFUSE_CLICKHOUSE_PASSWORD:?Set LANGFUSE_CLICKHOUSE_PASSWORD
+        in the private .env file}
+      CLICKHOUSE_CLUSTER_ENABLED: 'false'
+      REDIS_HOST: redis
+      REDIS_PORT: '6379'
+      REDIS_AUTH: ${LANGFUSE_REDIS_PASSWORD:?Set LANGFUSE_REDIS_PASSWORD in the private
+        .env file}
+      REDIS_TLS_ENABLED: 'false'
+      LANGFUSE_USE_AZURE_BLOB: 'false'
+      LANGFUSE_S3_BATCH_EXPORT_ENABLED: 'false'
+      LANGFUSE_S3_EVENT_UPLOAD_BUCKET: langfuse
+      LANGFUSE_S3_EVENT_UPLOAD_REGION: us-east-1
+      LANGFUSE_S3_EVENT_UPLOAD_ACCESS_KEY_ID: ${LANGFUSE_S3_ACCESS_KEY:?Set LANGFUSE_S3_ACCESS_KEY
+        in the private .env file}
+      LANGFUSE_S3_EVENT_UPLOAD_SECRET_ACCESS_KEY: ${LANGFUSE_S3_SECRET_KEY:?Set LANGFUSE_S3_SECRET_KEY
+        in the private .env file}
+      LANGFUSE_S3_EVENT_UPLOAD_ENDPOINT: http://minio:9000
+      LANGFUSE_S3_EVENT_UPLOAD_FORCE_PATH_STYLE: 'true'
+      LANGFUSE_S3_EVENT_UPLOAD_PREFIX: events/
+      LANGFUSE_S3_MEDIA_UPLOAD_BUCKET: langfuse
+      LANGFUSE_S3_MEDIA_UPLOAD_REGION: us-east-1
+      LANGFUSE_S3_MEDIA_UPLOAD_ACCESS_KEY_ID: ${LANGFUSE_S3_ACCESS_KEY:?Set LANGFUSE_S3_ACCESS_KEY
+        in the private .env file}
+      LANGFUSE_S3_MEDIA_UPLOAD_SECRET_ACCESS_KEY: ${LANGFUSE_S3_SECRET_KEY:?Set LANGFUSE_S3_SECRET_KEY
+        in the private .env file}
+      LANGFUSE_S3_MEDIA_UPLOAD_ENDPOINT: http://127.0.0.1:9090
+      LANGFUSE_S3_MEDIA_UPLOAD_FORCE_PATH_STYLE: 'true'
+      LANGFUSE_S3_MEDIA_UPLOAD_PREFIX: media/
+      NEXTAUTH_SECRET: ${LANGFUSE_NEXTAUTH_SECRET:?Set LANGFUSE_NEXTAUTH_SECRET in
+        the private .env file}
+      LANGFUSE_S3_MEDIA_UPLOAD_INTERNAL_ENDPOINT: http://minio:9000
+      AUTH_DISABLE_SIGNUP: 'true'
+      LANGFUSE_INIT_ORG_ID: studio
+      LANGFUSE_INIT_ORG_NAME: AI Production Studio
+      LANGFUSE_INIT_PROJECT_ID: studio
+      LANGFUSE_INIT_PROJECT_NAME: Studio traces
+      LANGFUSE_INIT_PROJECT_PUBLIC_KEY: ${LANGFUSE_PUBLIC_KEY:?Set LANGFUSE_PUBLIC_KEY
+        in the private .env file}
+      LANGFUSE_INIT_PROJECT_SECRET_KEY: ${LANGFUSE_SECRET_KEY:?Set LANGFUSE_SECRET_KEY
+        in the private .env file}
+      LANGFUSE_INIT_USER_EMAIL: ${LANGFUSE_INIT_USER_EMAIL:?Set LANGFUSE_INIT_USER_EMAIL
+        in the private .env file}
+      LANGFUSE_INIT_USER_NAME: Studio administrator
+      LANGFUSE_INIT_USER_PASSWORD: ${LANGFUSE_INIT_USER_PASSWORD:?Set LANGFUSE_INIT_USER_PASSWORD
+        in the private .env file}
+  langfuse-worker:
+    image: docker.langfuse.com/langfuse/langfuse-worker:4.36.1@sha256:20d61e4d7c111e1ef7b428aac2e23277e8e27184728f8b4f648d9aae864e4992
+    profiles:
+    - langfuse
+    restart: unless-stopped
+    mem_limit: 1g
+    security_opt:
+    - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+    depends_on: *id001
+    environment:
+      NEXTAUTH_URL: http://127.0.0.1:3000
+      DATABASE_URL: postgresql://langfuse:${LANGFUSE_POSTGRES_PASSWORD:?Set LANGFUSE_POSTGRES_PASSWORD
+        in the private .env file}@postgres:5432/langfuse
+      SALT: ${LANGFUSE_SALT:?Set LANGFUSE_SALT in the private .env file}
+      ENCRYPTION_KEY: ${LANGFUSE_ENCRYPTION_KEY:?Set LANGFUSE_ENCRYPTION_KEY in the
+        private .env file}
+      TELEMETRY_ENABLED: 'false'
+      LANGFUSE_ENABLE_EXPERIMENTAL_FEATURES: 'false'
+      LANGFUSE_IN_APP_AGENT_ENABLED: 'false'
+      CLICKHOUSE_MIGRATION_URL: clickhouse://clickhouse:9000
+      CLICKHOUSE_URL: http://clickhouse:8123
+      CLICKHOUSE_USER: langfuse
+      CLICKHOUSE_PASSWORD: ${LANGFUSE_CLICKHOUSE_PASSWORD:?Set LANGFUSE_CLICKHOUSE_PASSWORD
+        in the private .env file}
+      CLICKHOUSE_CLUSTER_ENABLED: 'false'
+      REDIS_HOST: redis
+      REDIS_PORT: '6379'
+      REDIS_AUTH: ${LANGFUSE_REDIS_PASSWORD:?Set LANGFUSE_REDIS_PASSWORD in the private
+        .env file}
+      REDIS_TLS_ENABLED: 'false'
+      LANGFUSE_USE_AZURE_BLOB: 'false'
+      LANGFUSE_S3_BATCH_EXPORT_ENABLED: 'false'
+      LANGFUSE_S3_EVENT_UPLOAD_BUCKET: langfuse
+      LANGFUSE_S3_EVENT_UPLOAD_REGION: us-east-1
+      LANGFUSE_S3_EVENT_UPLOAD_ACCESS_KEY_ID: ${LANGFUSE_S3_ACCESS_KEY:?Set LANGFUSE_S3_ACCESS_KEY
+        in the private .env file}
+      LANGFUSE_S3_EVENT_UPLOAD_SECRET_ACCESS_KEY: ${LANGFUSE_S3_SECRET_KEY:?Set LANGFUSE_S3_SECRET_KEY
+        in the private .env file}
+      LANGFUSE_S3_EVENT_UPLOAD_ENDPOINT: http://minio:9000
+      LANGFUSE_S3_EVENT_UPLOAD_FORCE_PATH_STYLE: 'true'
+      LANGFUSE_S3_EVENT_UPLOAD_PREFIX: events/
+      LANGFUSE_S3_MEDIA_UPLOAD_BUCKET: langfuse
+      LANGFUSE_S3_MEDIA_UPLOAD_REGION: us-east-1
+      LANGFUSE_S3_MEDIA_UPLOAD_ACCESS_KEY_ID: ${LANGFUSE_S3_ACCESS_KEY:?Set LANGFUSE_S3_ACCESS_KEY
+        in the private .env file}
+      LANGFUSE_S3_MEDIA_UPLOAD_SECRET_ACCESS_KEY: ${LANGFUSE_S3_SECRET_KEY:?Set LANGFUSE_S3_SECRET_KEY
+        in the private .env file}
+      LANGFUSE_S3_MEDIA_UPLOAD_ENDPOINT: http://minio:9000
+      LANGFUSE_S3_MEDIA_UPLOAD_FORCE_PATH_STYLE: 'true'
+      LANGFUSE_S3_MEDIA_UPLOAD_PREFIX: media/
+  postgres:
+    image: docker.io/library/postgres:17.11-bookworm@sha256:051f7b7b3abdd564d5d1bd1e8c4b9c1b6e77087d1dd22020ede611c096a272e0
+    profiles:
+    - langfuse
+    restart: unless-stopped
+    mem_limit: 512m
+    security_opt:
+    - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+    environment:
+      POSTGRES_USER: langfuse
+      POSTGRES_DB: langfuse
+      POSTGRES_PASSWORD: ${LANGFUSE_POSTGRES_PASSWORD:?Set LANGFUSE_POSTGRES_PASSWORD
+        in the private .env file}
+    volumes:
+    - langfuse_postgres:/var/lib/postgresql/data
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U langfuse -d langfuse
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  clickhouse:
+    image: docker.io/clickhouse/clickhouse-server:25.12.11.4@sha256:8a790dd3468db22b1d4e7b18a176f378ff5ff6053b9c48dd4ea1fa71a24c5ba6
+    profiles:
+    - langfuse
+    restart: unless-stopped
+    mem_limit: 2g
+    security_opt:
+    - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+    user: 101:101
+    environment:
+      CLICKHOUSE_DB: default
+      CLICKHOUSE_USER: langfuse
+      CLICKHOUSE_PASSWORD: ${LANGFUSE_CLICKHOUSE_PASSWORD:?Set LANGFUSE_CLICKHOUSE_PASSWORD
+        in the private .env file}
+    volumes:
+    - langfuse_clickhouse:/var/lib/clickhouse
+    - langfuse_clickhouse_logs:/var/log/clickhouse-server
+    healthcheck:
+      test:
+      - CMD
+      - wget
+      - --no-verbose
+      - --tries=1
+      - --spider
+      - http://127.0.0.1:8123/ping
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+  redis:
+    image: docker.io/library/redis:7.4.11-bookworm@sha256:71da9275c5f3fcb97d0fa0c8c5b36cc995327265420f17a04bfd544f458059f7
+    profiles:
+    - langfuse
+    restart: unless-stopped
+    mem_limit: 256m
+    security_opt:
+    - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+    environment:
+      REDIS_AUTH: ${LANGFUSE_REDIS_PASSWORD:?Set LANGFUSE_REDIS_PASSWORD in the private
+        .env file}
+      REDISCLI_AUTH: ${LANGFUSE_REDIS_PASSWORD:?Set LANGFUSE_REDIS_PASSWORD in the
+        private .env file}
+    command:
+    - sh
+    - -c
+    - exec redis-server --requirepass "$$REDIS_AUTH" --appendonly yes --maxmemory
+      192mb --maxmemory-policy noeviction
+    volumes:
+    - langfuse_redis:/data
+    healthcheck:
+      test:
+      - CMD
+      - redis-cli
+      - ping
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  minio:
+    image: cgr.dev/chainguard/minio:latest@sha256:29bbe439d3a3c41afac869973c08a70b1a7e7e6a3822015a110bf53df7e3e66c
+    profiles:
+    - langfuse
+    restart: unless-stopped
+    mem_limit: 512m
+    security_opt:
+    - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+    entrypoint:
+    - sh
+    - -c
+    command:
+    - mkdir -p /data/langfuse && exec minio server --address :9000 --console-address
+      :9001 /data
+    environment:
+      MINIO_ROOT_USER: ${LANGFUSE_S3_ACCESS_KEY:?Set LANGFUSE_S3_ACCESS_KEY in the
+        private .env file}
+      MINIO_ROOT_PASSWORD: ${LANGFUSE_S3_SECRET_KEY:?Set LANGFUSE_S3_SECRET_KEY in
+        the private .env file}
+    ports:
+    - 127.0.0.1:9090:9000
+    volumes:
+    - langfuse_minio:/data
+    healthcheck:
+      test:
+      - CMD
+      - mc
+      - ready
+      - local
+      interval: 5s
+      timeout: 5s
+      retries: 20
+volumes:
+  langfuse_postgres: {}
+  langfuse_clickhouse: {}
+  langfuse_clickhouse_logs: {}
+  langfuse_redis: {}
+  langfuse_minio: {}

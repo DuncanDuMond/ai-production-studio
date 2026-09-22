@@ -1,0 +1,2 @@
+# Fetched upstream snapshots are immutable provenance data, not source.
+deploy/evidence/* -diff linguist-generated=true

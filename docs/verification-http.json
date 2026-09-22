@@ -1,0 +1,62 @@
+{
+  "health": {
+    "status": "ok",
+    "mode": "local",
+    "version": "0.1.0"
+  },
+  "integration_count": 10,
+  "browser_verified_run_id": "05d12e5d75bc4fe294342fd968f277a4",
+  "real_http_runs": [
+    {
+      "run_id": "5eab2e5a0a19479ca8640976083a8666",
+      "status": "passed",
+      "metrics": [
+        {
+          "name": "string_presence",
+          "framework": "ragas",
+          "score": 1.0,
+          "threshold": 1.0,
+          "passed": true,
+          "detail": "Case-sensitive reference substring match; not semantic correctness."
+        },
+        {
+          "name": "exact_match",
+          "framework": "deepeval",
+          "score": 1.0,
+          "threshold": 1.0,
+          "passed": true,
+          "detail": "Exact match after stripping edge whitespace; not semantic correctness."
+        }
+      ],
+      "trace_id": "8226a4ebda41bb7abd3885a1851c3430",
+      "readback_and_export_verified": true
+    },
+    {
+      "run_id": "01fcbb9324714d44b47a2e1dd83ef78a",
+      "status": "blocked",
+      "metrics": [
+        {
+          "name": "string_presence",
+          "framework": "ragas",
+          "score": 0.0,
+          "threshold": 1.0,
+          "passed": false,
+          "detail": "Case-sensitive reference substring match; not semantic correctness."
+        },
+        {
+          "name": "exact_match",
+          "framework": "deepeval",
+          "score": 0.0,
+          "threshold": 1.0,
+          "passed": false,
+          "detail": "Exact match after stripping edge whitespace; not semantic correctness."
+        }
+      ],
+      "trace_id": "236b96eff07779eff9d7806ce0649f91",
+      "readback_and_export_verified": true
+    }
+  ],
+  "provider_calls": false,
+  "docker_runtime_verified": false,
+  "external_otel_delivery_verified": false
+}

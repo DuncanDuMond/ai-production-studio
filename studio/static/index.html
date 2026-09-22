@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="A local-first production workbench for grounded AI, evaluation, and trace evidence.">
+  <title>AI Production Studio</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%235e6ad2'/%3E%3Cpath d='m10 26 10-17 10 17H10m5-8h10' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h5l2 3h7a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></symbol>
+    <symbol id="i-run" viewBox="0 0 24 24"><path d="m8 4 12 8-12 8V4Z"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 11a9 9 0 1 1 2 7M3 4v7h7m2-4v5l3 2"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="m12 3 9 5v9l-9 5-9-5V8l9-5Zm0 9L3 8m9 4 9-4m-9 4v10"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="9" cy="18" r="2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 8a9 9 0 0 0-15-3L3 8m0-6v6h6m-5 8a9 9 0 0 0 15 3l2-3m0 6v-6h-6"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H5v18h14V8l-5-5Zm0 0v6h5M8 13h8m-8 4h6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 9 4v5c0 5-9 10-9 10S3 17 3 12V7l9-4Zm-4 9 3 3 5-6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+  </defs></svg>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Studio sidebar">
+      <a class="brand" href="#overview" aria-label="AI Production Studio home"><span class="brand-mark">A<span> /</span></span><span>Production<span class="brand-sub">AI STUDIO</span></span></a>
+      <div class="workspace-switch"><label for="workspace-select">ACTIVE WORKSPACE</label><select id="workspace-select"><option value="">No workspace selected</option></select></div>
+      <nav aria-label="Primary navigation">
+        <p class="nav-label">STUDIO</p>
+        <a href="#overview" data-view="overview" class="nav-link active" aria-current="page"><svg><use href="#i-grid"/></svg>Overview</a>
+        <a href="#workspaces" data-view="workspaces" class="nav-link"><svg><use href="#i-folder"/></svg>Workspaces<span id="workspace-count" class="nav-count">—</span></a>
+        <a href="#workbench" data-view="workbench" class="nav-link"><svg><use href="#i-run"/></svg>Workbench</a>
+        <a href="#history" data-view="history" class="nav-link"><svg><use href="#i-history"/></svg>Run history</a>
+        <p class="nav-label system-label">SYSTEM</p>
+        <a href="#integrations" data-view="integrations" class="nav-link"><svg><use href="#i-box"/></svg>Integrations<span id="integration-count" class="nav-count">—</span></a>
+        <a href="#setup" data-view="setup" class="nav-link"><svg><use href="#i-settings"/></svg>Setup &amp; access</a>
+      </nav>
+      <div class="sidebar-bottom"><div class="local-note"><svg><use href="#i-shield"/></svg><div>Local-first by design<p>Live calls are always opt-in.</p></div></div><div class="sidebar-version"><span>PRODUCTION STUDIO</span><span id="app-version">v0.1.0</span></div></div>
+    </aside>
+    <div class="main-shell">
+      <header class="topbar"><div class="breadcrumb">Studio<span>/</span><strong id="breadcrumb-current">Overview</strong></div><div class="toolbar"><span id="connection-status" class="status-dot">Checking API</span><button id="refresh-button" class="icon-button" aria-label="Refresh studio data" title="Refresh studio data"><svg><use href="#i-refresh"/></svg></button><button id="access-button" class="button small">Session access</button></div></header>
+      <main id="main" tabindex="-1">
+        <div id="error-banner" class="notice error" role="alert" hidden></div>
+        <section id="view-overview" class="view" aria-labelledby="overview-title"><div class="page-heading"><div><p class="eyebrow">YOUR PRODUCTION CONTROL ROOM</p><h1 id="overview-title">Overview</h1><p class="subtitle">Every answer, backed by evidence.</p></div></div><div id="overview-content"></div></section>
+        <section id="view-workspaces" class="view" aria-labelledby="workspaces-title" hidden><div class="page-heading"><div><p class="eyebrow">CONTEXT LAYER</p><h1 id="workspaces-title">Workspaces</h1><p class="subtitle">Keep source documents and their runs together.</p></div></div><div id="workspaces-content"></div></section>
+        <section id="view-workbench" class="view" aria-labelledby="workbench-title" hidden><div class="page-heading"><div><p class="eyebrow">BUILD · RUN · INSPECT</p><h1 id="workbench-title">Workbench</h1><p class="subtitle">A grounded answer is only the beginning.</p></div></div><div id="workbench-content"></div></section>
+        <section id="view-history" class="view" aria-labelledby="history-title" hidden><div class="page-heading"><div><p class="eyebrow">AUDIT TRAIL</p><h1 id="history-title">Run history</h1><p class="subtitle">Inspect decisions. Keep the evidence.</p></div></div><div id="history-content"></div></section>
+        <section id="view-integrations" class="view" aria-labelledby="integrations-title" hidden><div class="page-heading"><div><p class="eyebrow">OPEN-SOURCE FOUNDATION</p><h1 id="integrations-title">Integrations</h1><p class="subtitle">Ten upstream tools. One inspectable pipeline.</p></div></div><div id="integrations-content"></div></section>
+        <section id="view-setup" class="view" aria-labelledby="setup-title" hidden><div class="page-heading"><div><p class="eyebrow">ENVIRONMENT &amp; SECURITY</p><h1 id="setup-title">Setup &amp; access</h1><p class="subtitle">Explicit configuration. No hidden connections.</p></div></div><div id="setup-content"></div></section>
+        <footer class="main-footer"><span>Built for answers you can inspect.</span><span>LOCAL CONTEXT / EXPLICIT CONSENT / REAL EVIDENCE</span></footer>
+      </main>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="modal" aria-labelledby="modal-title"><div class="dialog-heading"><h2 id="modal-title"></h2><button id="close-modal" class="icon-button" aria-label="Close dialog">×</button></div><div id="modal-content"></div></dialog>
+  <noscript><div class="noscript">JavaScript is required to use the studio. Your data stays on this server.</div></noscript>
+</body>
+</html>

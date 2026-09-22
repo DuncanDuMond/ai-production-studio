@@ -1,0 +1,50 @@
+# Local-only, opt-in deployment. See docs/DEPLOYMENT.md.
+services:
+  litellm:
+    image: ghcr.io/berriai/litellm:main-stable@sha256:d295634e09c648dcdb72c4cc2dd226f5fb87823a73e88cbbed6f205e4deb044b
+    profiles:
+    - proxy
+    restart: unless-stopped
+    mem_limit: 1g
+    security_opt:
+    - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+    command:
+    - --config
+    - /app/config.yaml
+    - --host
+    - 0.0.0.0
+    - --port
+    - '4000'
+    ports:
+    - 127.0.0.1:4000:4000
+    volumes:
+    - ./litellm.yaml:/app/config.yaml:ro
+    environment:
+      LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY:?Set LITELLM_MASTER_KEY in the private
+        .env file}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:?Set OPENAI_API_KEY in the private .env file}
+      LITELLM_PROVIDER_MODEL: ${LITELLM_PROVIDER_MODEL:?Set LITELLM_PROVIDER_MODEL
+        in the private .env file}
+      LITELLM_TELEMETRY: 'false'
+      DO_NOT_TRACK: '1'
+    networks:
+    - default
+    - provider_egress
+    healthcheck:
+      test:
+      - CMD
+      - python3
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://127.0.0.1:4000/health/liveliness',
+        timeout=5)
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+networks:
+  provider_egress: {}

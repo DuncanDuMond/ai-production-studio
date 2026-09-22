@@ -1,0 +1,64 @@
+{
+  "checked_at": "2026-09-16T03:11:49.460726+00:00",
+  "scope": "Owned deployment artifacts only; this is not an application-wide or container-runtime certification.",
+  "commands": [
+    {
+      "command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 uv run --locked pytest -q deploy",
+      "output": ".....                                                        [100%]\r\n5 passed, 12 subtests passed in 3.32s",
+      "exit_code": 0,
+      "error": null
+    },
+    {
+      "command": "uv run --locked ruff check deploy scripts/check_deploy.py",
+      "output": "All checks passed!",
+      "exit_code": 0,
+      "error": null
+    },
+    {
+      "command": "uv run --locked python scripts/check_deploy.py",
+      "output": "Static deployment checks passed (runtime NOT tested).",
+      "exit_code": 0,
+      "error": null
+    }
+  ],
+  "compose_json_schema": {
+    "source_url": "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json",
+    "validator": "jsonschema 4.26.0",
+    "results": [
+      {
+        "file": "compose.langfuse.yml",
+        "result": "valid"
+      },
+      {
+        "file": "compose.phoenix.yml",
+        "result": "valid"
+      },
+      {
+        "file": "compose.proxy.yml",
+        "result": "valid"
+      },
+      {
+        "file": "compose.telemetry-both.yml",
+        "result": "valid"
+      },
+      {
+        "file": "compose.telemetry-langfuse.yml",
+        "result": "valid"
+      },
+      {
+        "file": "compose.telemetry-phoenix.yml",
+        "result": "valid"
+      },
+      {
+        "file": "compose.yml",
+        "result": "valid"
+      }
+    ]
+  },
+  "runtime_checks": "NOT RUN: Docker absent; no images pulled, built or started.",
+  "known_security_blockers": [
+    "diskcache 5.6.3 CVE-2025-69872",
+    "ragas 0.4.3 CVE-2026-6587"
+  ],
+  "upstream_count": 10
+}
