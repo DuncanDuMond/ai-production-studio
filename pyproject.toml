@@ -43,3 +43,5 @@ select = ["E4", "E7", "E9", "F", "I"]
 
 [tool.uv]
 package = false
+# CVE-2026-101918: do not resolve the vulnerable PyJWT payload parser again.
+constraint-dependencies = ["pyjwt>=2.15.1"]

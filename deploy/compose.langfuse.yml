@@ -15,6 +15,9 @@ services:
         max-file: '3'
     ports:
     - 127.0.0.1:3000:3000
+    networks:
+    - default
+    - ingress
     depends_on: &id001
       postgres:
         condition: service_healthy
@@ -261,6 +264,9 @@ services:
         the private .env file}
     ports:
     - 127.0.0.1:9090:9000
+    networks:
+    - default
+    - ingress
     volumes:
     - langfuse_minio:/data
     healthcheck:

@@ -2,10 +2,12 @@
 
 ## Release status and hard limits
 
-**Docker is not installed in the build environment. No image was pulled, built or started.**
-YAML parsing, deployment policy tests, the official Compose JSON Schema, and upstream/registry
-metadata retrieval were exercised. Container startup, migrations, image healthchecks, volume
-permissions, real provider calls and end-to-end OTLP delivery remain **unverified**.
+**Docker is now available, and the locked Studio image was built successfully.**
+The maintenance update also exercises isolated container verification; see
+[UPDATE.md](UPDATE.md) for the current executed evidence. YAML parsing, deployment
+policy tests, the official Compose JSON Schema, and upstream/registry metadata
+retrieval remain separate from runtime evidence. Full Langfuse/Phoenix startup,
+migrations and real provider calls are not covered by the Studio smoke test.
 The GitHub Actions workflow is supplied, not represented as an executed CI run.
 
 There are unresolved dependency advisories for `diskcache 5.6.3` (CVE-2025-69872)
@@ -20,11 +22,11 @@ Do not change them to a public bind, add tunnels or deploy these files to the In
 without a separate security review. Inside a container, `0.0.0.0` is intentional; the
 host-side port publication is still loopback-only.
 
-The implementation host had roughly 9.5 GB free and no Docker. Do **not** try to fit the
-full stack there without provisioning storage. SDK installation, image extraction,
-ClickHouse, traces and build cache need additional space. The supplied memory caps are
-starting limits, not measured capacity guarantees. Start with Studio alone, then add
-only the backend you need. Do not run all profiles simply because they are present.
+Check free disk space before enabling the full stack. SDK installation, image
+extraction, ClickHouse, traces and build cache need additional space. The supplied
+memory caps are starting limits, not measured capacity guarantees. Start with
+Studio alone, then add only the backend you need. Do not run all profiles simply
+because they are present.
 
 ## Layout and opt-in profiles
 
@@ -40,10 +42,15 @@ also prevent mandatory interpolation for a backend you did not select.
 | `compose.langfuse.yml` | `langfuse` | Web, worker, PostgreSQL, ClickHouse, Redis, MinIO; web at `http://127.0.0.1:3000` |
 | **One** of `compose.telemetry-{phoenix,langfuse,both}.yml` | `telemetry` | Core Collector OTLP/HTTP, port 4318 |
 
-The default Docker network is `internal: true`. Only the explicitly enabled LiteLLM
-proxy is attached to an additional egress network. No app data is sent to a remote
-observability endpoint. Downloading packages/images and CI vulnerability lookup do
-require network access; the latter sends dependency identifiers to advisory services,
+The default backend Docker network is `internal: true`. Services with published
+loopback ports also join a dedicated ingress bridge with outbound IP masquerading
+disabled; Docker 29 otherwise suppresses port publication on internal-only
+networks. Only the explicitly enabled LiteLLM proxy joins an additional
+NAT-enabled egress network. NAT disablement is not a complete host firewall:
+review host routing and enforce an egress firewall when required. No app data is
+sent to a remote observability endpoint by this configuration. Downloading
+packages/images and CI vulnerability lookup do require network access; the latter
+sends dependency identifiers to advisory services,
 not Studio documents. Do not interpret telemetry opt-out flags as an audited egress
 firewall for a host-run application.
 

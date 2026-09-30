@@ -24,6 +24,9 @@ services:
     - ./otel-both.yaml:/etc/otelcol/config.yaml:ro
     ports:
     - 127.0.0.1:4318:4318
+    networks:
+    - default
+    - ingress
     read_only: true
     cap_drop:
     - ALL

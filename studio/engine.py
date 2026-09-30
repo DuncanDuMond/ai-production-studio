@@ -53,9 +53,13 @@ def integration_catalog() -> list[dict]:
             status = "unconfigured" if installed else "unavailable"
             detail = "Optional Collector destination; configure routing separately. Service health unknown."
         elif ident == "otel":
-            if installed and not os.getenv("STUDIO_OTLP_ENDPOINT"):
+            from .telemetry import export_enabled
+
+            configured = export_enabled()
+            if installed and not configured:
                 status = "unconfigured"
-            detail = "Local spans; OTLP export opt-in via STUDIO_OTLP_ENDPOINT. Service health unknown."
+            export_state = "export configured" if configured else "export disabled"
+            detail = f"Local spans; OTLP {export_state}. Service health unknown."
         elif ident in {"instructor", "litellm"}:
             if installed and not live_configured:
                 status = "unconfigured"

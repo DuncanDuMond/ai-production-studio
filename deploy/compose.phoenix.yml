@@ -15,6 +15,9 @@ services:
         max-file: '3'
     ports:
     - 127.0.0.1:6006:6006
+    networks:
+    - default
+    - ingress
     environment:
       PHOENIX_ENABLE_AUTH: 'true'
       PHOENIX_SECRET: ${PHOENIX_SECRET:?Set PHOENIX_SECRET in the private .env file}

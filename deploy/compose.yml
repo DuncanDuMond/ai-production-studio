@@ -11,6 +11,9 @@ services:
     init: true
     ports:
     - 127.0.0.1:8765:8765
+    networks:
+    - default
+    - ingress
     environment:
       STUDIO_API_TOKEN: ${STUDIO_API_TOKEN:?Set STUDIO_API_TOKEN in the private .env
         file}
@@ -45,5 +48,11 @@ services:
 networks:
   default:
     internal: true
+  # Docker 29 suppresses published ports on internal-only networks.
+  # This bridge enables loopback ingress without outbound NAT.
+  ingress:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.enable_ip_masquerade: 'false'
 volumes:
   studio_data: {}

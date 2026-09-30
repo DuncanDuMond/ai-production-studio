@@ -13,7 +13,7 @@ This release is a local-first, single-operator workbench, **not a certified prod
 
 ## Dependency audit — unresolved upstream advisories
 
-`uv run pip-audit --format=json --output=dependency-audit.json` returned two distinct advisories, duplicated in the feed (four raw findings):
+The fresh audit after the maintenance update returned two distinct unresolved advisories, duplicated in the feed (four raw findings). It also verified that **PyJWT was upgraded from 2.14.0 to 2.15.1**, removing CVE-2026-101918 / GHSA-42vr-xj54-vc7v. The lockfile and `pyjwt>=2.15.1` uv constraint prevent resolution back to the affected parser. This does not make the remaining audit clean:
 
 1. **diskcache 5.6.3 — CVE-2025-69872 / GHSA-w8v5-vhqr-4h9v / PYSEC-2026-2447.** Default pickle serialization can execute code if an attacker can modify its cache directory. No patched version was listed. Do not mount untrusted/shared caches or load arbitrary cache data. The application stores its own state as JSON in SQLite, not pickle.
 2. **ragas 0.4.3 — CVE-2026-6587 / GHSA-95ww-475f-pr4f / PYSEC-2026-3046.** Multimodal-faithfulness URL/local-file processing can cause SSRF. No patched version was listed. The studio's Ragas adapter must use deterministic text-only scoring and must never invoke multimodal or URL/file processing.

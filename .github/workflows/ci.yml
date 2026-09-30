@@ -44,6 +44,13 @@ jobs:
             -f deploy/compose.phoenix.yml -f deploy/compose.langfuse.yml \
             -f deploy/compose.telemetry-both.yml --profile '*' config --quiet
           rm "$RUNNER_TEMP/studio.env"
+      - name: Build isolated application smoke image
+        run: docker build --tag ai-production-studio:update .
+      - name: Real offline container and pinned Collector smoke
+        run: |
+          python scripts/smoke_container.py --image ai-production-studio:update \
+            --scratch-dir "$RUNNER_TEMP/studio-smoke" \
+            --evidence "$RUNNER_TEMP/studio-smoke-evidence.json"
       - name: Dependency vulnerability gate (known advisories are not suppressed)
         if: ${{ always() }}
         run: uv run --locked pip-audit --progress-spinner off

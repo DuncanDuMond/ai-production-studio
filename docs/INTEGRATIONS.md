@@ -13,15 +13,15 @@ Ragas removes the obsolete import or the dependency relationship is revalidated.
 
 | ID | Distribution / locked version | Actual role in this application |
 |---|---|---|
-| `otel` | `opentelemetry-sdk` 1.44.0 | Private manual spans; no exporter unless `STUDIO_OTLP_ENDPOINT` is configured. |
+| `otel` | `opentelemetry-sdk` 1.45.0 | Private manual spans; exporter requires an explicit endpoint and SDK enablement. |
 | `langfuse` | `langfuse` 3.15.0 | Optional Collector destination, not an independently initialized SDK. Service health unknown. |
-| `phoenix` | `arize-phoenix-otel` 0.17.1 | Optional Collector destination, not Phoenix server or a duplicate exporter. Service health unknown. |
+| `phoenix` | `arize-phoenix-otel` 0.17.2 | Optional Collector destination, not Phoenix server or a duplicate exporter. Service health unknown. |
 | `ragas` | `ragas` 0.4.3 | Real `StringPresence.ascore(reference=..., response=...)`, no LLM/embeddings. |
 | `deepeval` | `deepeval` 3.9.9 | Real `ExactMatchMetric.measure(LLMTestCase(...))`, no LLM. |
 | `guardrails` | `guardrails-ai` 0.11.0 | Real `Guard(output_schema=...).parse(..., num_reasks=0)` plus application provenance checks. |
 | `pydantic-ai` | `pydantic-ai-slim[openai]` 2.31.1 | Real `Agent(TestModel(custom_output_args=...))` locally; live OpenAIChatModel via configured proxy. |
 | `instructor` | `instructor` 1.17.0 | Live `from_openai(..., mode=TOOLS)` through the same proxy; not used to pretend to generate offline. |
-| `litellm` | `litellm` 1.101.0 | OpenAI-compatible proxy boundary. The app intentionally does not import the router SDK or spin up a proxy. |
+| `litellm` | `litellm` 1.103.1 | OpenAI-compatible proxy boundary. The app intentionally does not import the router SDK or spin up a proxy. |
 | `haystack` | `haystack-ai` 2.31.0 | Real InMemoryDocumentStore and InMemoryBM25Retriever, no embeddings/model downloads. |
 
 The catalog gets versions from `importlib.metadata.version`, not this table.
@@ -105,7 +105,10 @@ disable flag is true, and invalid/non-recording spans expose no trace ID. Generi
 OTEL endpoint variables alone do not enable export. Configuration is read on first
 provider use; restart after changing it. Langfuse/Phoenix SDKs are not initialized: one Collector
 receives the traces and its explicitly configured exporters route them to the
-backends. Backend health, export delivery, and UI rendering are not claimed.
+backends. The smoke run used the pinned Collector with an isolated debug destination and
+verified actual trace arrival without submitted content. This does **not** verify
+Langfuse/Phoenix backend ingestion, credentials or UI rendering; those remain
+operator gates. See [UPDATE.md](UPDATE.md) for maintenance evidence.
 
 Application storage/export still contains user prompts and outputs by design;
 telemetry privacy does not make the database or run downloads content-free.

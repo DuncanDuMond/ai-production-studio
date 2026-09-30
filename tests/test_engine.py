@@ -54,6 +54,22 @@ class EngineTests(unittest.TestCase):
             if item["id"] in {"otel", "langfuse", "phoenix", "instructor", "litellm"}:
                 self.assertIn(item["status"], {"unconfigured", "unavailable"})
 
+    def test_catalog_respects_explicit_telemetry_disable(self):
+        from studio.engine import integration_catalog
+
+        for endpoint, disabled, expected in (
+            ("http://collector:4318/v1/traces", "true", "unconfigured"),
+            ("http://collector:4318/v1/traces", "false", "available"),
+            ("   ", "false", "unconfigured"),
+        ):
+            with self.subTest(endpoint=endpoint, disabled=disabled), patch.dict(
+                os.environ, {"STUDIO_OTLP_ENDPOINT": endpoint, "OTEL_SDK_DISABLED": disabled}
+            ):
+                item = next(item for item in integration_catalog() if item["id"] == "otel")
+                self.assertEqual(item["status"], expected)
+                if expected == "unconfigured":
+                    self.assertIn("export disabled", item["detail"].lower())
+
     def test_local_run_retrieves_real_documents_and_exercises_typed_schema(self):
         engine = importlib.import_module("studio.engine")
         self.assertTrue(callable(getattr(engine, "execute_run", None)), "execute_run is missing")

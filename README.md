@@ -2,7 +2,7 @@
 
 Local-first AI engineering workbench built around the ten repositories requested in **BELL-31**. It combines a browser studio, persistent SQLite workspaces, retrieval, structured agent runs, validation, evaluation evidence and opt-in observability infrastructure.
 
-**Release status:** verified local build; not approved for public production. Docker and provider credentials were unavailable on the build machine. Two unresolved upstream dependency advisories require review (see [Security](docs/SECURITY.md)).
+**Release status:** verified local build; not approved for public production. The maintenance update refreshes compatible dependencies and fixes the PyJWT advisory. Two unresolved upstream advisories still require review (see [Security](docs/SECURITY.md)); current verification and deployment boundaries are recorded in [UPDATE.md](docs/UPDATE.md).
 
 ## Run locally
 
