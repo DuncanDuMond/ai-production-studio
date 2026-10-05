@@ -1,0 +1,58 @@
+# Local-only, opt-in deployment. See docs/DEPLOYMENT.md.
+name: ai-production-studio
+services:
+  studio:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    profiles:
+    - studio
+    restart: unless-stopped
+    init: true
+    ports:
+    - 127.0.0.1:8765:8765
+    networks:
+    - default
+    - ingress
+    environment:
+      STUDIO_API_TOKEN: ${STUDIO_API_TOKEN:?Set STUDIO_API_TOKEN in the private .env
+        file}
+      STUDIO_ENV: production
+      STUDIO_DB_PATH: /app/data/studio.db
+      STUDIO_ENABLE_LIVE: ${STUDIO_ENABLE_LIVE:-false}
+      STUDIO_LITELLM_BASE_URL: ${STUDIO_LITELLM_BASE_URL:-http://litellm:4000/v1}
+      STUDIO_LITELLM_API_KEY: ${STUDIO_LITELLM_API_KEY:-}
+      STUDIO_MODEL: ${STUDIO_MODEL:-studio-model}
+      STUDIO_OTLP_ENDPOINT: ${STUDIO_OTLP_ENDPOINT:-}
+      DEEPEVAL_TELEMETRY_OPT_OUT: 'YES'
+      HAYSTACK_TELEMETRY_ENABLED: 'false'
+      RAGAS_DO_NOT_TRACK: 'true'
+      GUARDRAILS_TELEMETRY_ENABLED: 'false'
+      DO_NOT_TRACK: '1'
+      OTEL_SDK_DISABLED: ${OTEL_SDK_DISABLED:-true}
+    volumes:
+    - studio_data:/app/data
+    read_only: true
+    tmpfs:
+    - /tmp:rw,noexec,nosuid,size=256m
+    cap_drop:
+    - ALL
+    security_opt:
+    - no-new-privileges:true
+    mem_limit: 2g
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+networks:
+  default:
+    internal: true
+  # Docker 29 suppresses published ports on internal-only networks.
+  # This bridge enables loopback ingress without outbound NAT.
+  ingress:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.enable_ip_masquerade: 'false'
+volumes:
+  studio_data: {}

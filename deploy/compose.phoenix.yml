@@ -1,0 +1,35 @@
+# Local-only, opt-in deployment. See docs/DEPLOYMENT.md.
+services:
+  phoenix:
+    image: docker.io/arizephoenix/phoenix:20.12.0-nonroot@sha256:6bac6c416b61b7fbe97a7ad48fd48e7fef940685a1e517418d4bc24b65791348
+    profiles:
+    - phoenix
+    restart: unless-stopped
+    mem_limit: 1g
+    security_opt:
+    - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+    ports:
+    - 127.0.0.1:6006:6006
+    networks:
+    - default
+    - ingress
+    environment:
+      PHOENIX_ENABLE_AUTH: 'true'
+      PHOENIX_SECRET: ${PHOENIX_SECRET:?Set PHOENIX_SECRET in the private .env file}
+      PHOENIX_DEFAULT_ADMIN_INITIAL_PASSWORD: ${PHOENIX_ADMIN_PASSWORD:?Set PHOENIX_ADMIN_PASSWORD
+        in the private .env file}
+      PHOENIX_TELEMETRY_ENABLED: 'false'
+      PHOENIX_WORKING_DIR: /home/nonroot/.phoenix
+      PHOENIX_SQL_DATABASE_URL: sqlite:////home/nonroot/.phoenix/phoenix.db
+      PHOENIX_USE_SECURE_COOKIES: 'false'
+    volumes:
+    - phoenix_data:/home/nonroot
+    cap_drop:
+    - ALL
+volumes:
+  phoenix_data: {}

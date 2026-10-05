@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://github.com/open-telemetry/opentelemetry-collector",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 2,
+      "url": "https://github.com/langfuse/langfuse",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 3,
+      "url": "https://github.com/Arize-ai/phoenix",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 4,
+      "url": "https://github.com/vibrantlabsai/ragas",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 5,
+      "url": "https://github.com/confident-ai/deepeval",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 6,
+      "url": "https://github.com/guardrails-ai/guardrails",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 7,
+      "url": "https://github.com/pydantic/pydantic-ai",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 8,
+      "url": "https://github.com/567-labs/instructor",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 9,
+      "url": "https://github.com/BerriAI/litellm",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 10,
+      "url": "https://github.com/deepset-ai/haystack",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 11,
+      "url": "https://raw.githubusercontent.com/langfuse/langfuse/v4.36.1/docker-compose.yml",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 12,
+      "url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector-releases/v0.161.0/distributions/otelcol/manifest.yaml",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 13,
+      "url": "https://langfuse.com/integrations/native/opentelemetry",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 14,
+      "url": "https://langfuse.com/self-hosting/deployment/docker-compose",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 15,
+      "url": "https://arize.com/docs/phoenix/self-hosting/deployment-options/docker",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 16,
+      "url": "https://docs.litellm.ai/docs/proxy/deploy",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 17,
+      "url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector-releases/v0.161.0/README.md",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 18,
+      "url": "https://raw.githubusercontent.com/BerriAI/litellm/v1.101.0/docker-compose.yml",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 19,
+      "url": "https://api.github.com/repos/astral-sh/uv/releases/latest",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 20,
+      "url": "https://raw.githubusercontent.com/Arize-ai/phoenix/arize-phoenix-v20.12.0/src/phoenix/config.py",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 21,
+      "url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector-releases/v0.161.0/distributions/otelcol/README.md",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 22,
+      "url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector-releases/v0.160.0/distributions/otelcol/manifest.yaml",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 23,
+      "url": "https://raw.githubusercontent.com/BerriAI/litellm/18243cd7af4c3325165ba68b21379e2719e051c7/pyproject.toml",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 24,
+      "url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector/v0.161.0/LICENSE",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 25,
+      "url": "https://raw.githubusercontent.com/langfuse/langfuse/v4.36.1/LICENSE",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 26,
+      "url": "https://raw.githubusercontent.com/Arize-ai/phoenix/arize-phoenix-v20.12.0/LICENSE",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 27,
+      "url": "https://raw.githubusercontent.com/vibrantlabsai/ragas/v0.4.3/LICENSE",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 28,
+      "url": "https://raw.githubusercontent.com/confident-ai/deepeval/python-v4.2.0/LICENSE.md",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 29,
+      "url": "https://raw.githubusercontent.com/guardrails-ai/guardrails/v0.11.0/LICENSE",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 30,
+      "url": "https://raw.githubusercontent.com/pydantic/pydantic-ai/v2.43.0/LICENSE",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 31,
+      "url": "https://raw.githubusercontent.com/567-labs/instructor/v1.17.0/LICENSE",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 32,
+      "url": "https://raw.githubusercontent.com/BerriAI/litellm/v1.101.0/LICENSE",
+      "title": "",
+      "accessed": "2026-09-15"
+    },
+    {
+      "id": 33,
+      "url": "https://raw.githubusercontent.com/deepset-ai/haystack/v3.1.1/LICENSE",
+      "title": "",
+      "accessed": "2026-09-15"
+    }
+  ]
+}

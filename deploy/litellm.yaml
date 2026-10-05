@@ -1,0 +1,12 @@
+# Local-only, opt-in deployment. See docs/DEPLOYMENT.md.
+model_list:
+- model_name: studio-model
+  litellm_params:
+    model: os.environ/LITELLM_PROVIDER_MODEL
+    api_key: os.environ/OPENAI_API_KEY
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+litellm_settings:
+  telemetry: false
+  set_verbose: false
+  drop_params: false
