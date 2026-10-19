@@ -19,7 +19,7 @@ Ragas removes the obsolete import or the dependency relationship is revalidated.
 | `ragas` | `ragas` 0.4.3 | Real `StringPresence.ascore(reference=..., response=...)`, no LLM/embeddings. |
 | `deepeval` | `deepeval` 3.9.9 | Real `ExactMatchMetric.measure(LLMTestCase(...))`, no LLM. |
 | `guardrails` | `guardrails-ai` 0.11.0 | Real `Guard(output_schema=...).parse(..., num_reasks=0)` plus application provenance checks. |
-| `pydantic-ai` | `pydantic-ai-slim[openai]` 2.31.1 | Real `Agent(TestModel(custom_output_args=...))` locally; live OpenAIChatModel via configured proxy. |
+| `pydantic-ai` | `pydantic-ai-slim[openai]` 1.107.7 | Patched 1.x compatibility line; real local TestModel and opt-in live proxy execution. |
 | `instructor` | `instructor` 1.17.0 | Live `from_openai(..., mode=TOOLS)` through the same proxy; not used to pretend to generate offline. |
 | `litellm` | `litellm` 1.103.1 | OpenAI-compatible proxy boundary. The app intentionally does not import the router SDK or spin up a proxy. |
 | `haystack` | `haystack-ai` 2.31.0 | Real InMemoryDocumentStore and InMemoryBM25Retriever, no embeddings/model downloads. |

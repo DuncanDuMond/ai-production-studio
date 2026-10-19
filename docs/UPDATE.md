@@ -1,5 +1,60 @@
 # Production Studio maintenance update
 
+## GitHub reconciliation and security update — 2026-10-19
+
+Target: `DuncanDuMond/ai-production-studio`, default branch `main`.
+
+The repository had two independent roots: uploaded `main` at `8b26a36` and the
+reviewed `bell-67-review-snapshot` at `6f07783`. Reconciliation preserves both
+histories with a merge, not a forced replacement. No pull requests existed at
+inventory time. The prepared source tree restores `.dockerignore`, `.env.example`,
+`.gitattributes`, `.github/workflows/ci.yml`, and `.gitignore`; removes the uploaded
+SQLite file and 16 compiled Python cache files from tracking; and retains the
+uploaded documentation/provenance values after checking semantic equality.
+Generated audit evidence and JSON provenance are regenerated rather than selected
+by merge side. The real local database and unrelated untracked files are untouched.
+
+The hosted CI failure was reproduced with `OTEL_SDK_DISABLED=true`: the in-memory
+privacy test produced no spans. Engine tests now explicitly enable their private
+in-memory provider inside a restored environment patch. This changes only test
+isolation, not production telemetry settings.
+
+A fresh audit discovered eight fixable advisories in the previous lock. With
+approval, Pydantic AI is now **1.107.7**, the patched maintenance line compatible
+with Guardrails and OpenAI 2.x, and aiohttp is **3.14.5**. The lock update also
+selects matching Pydantic Graph 1.107.7 and genai-prices 0.0.73. Both agent adapters
+and reference metrics pass. This deliberately supersedes the September 2.31.1
+compatibility decision recorded below. Ragas and diskcache remain unresolved;
+the CI audit gate is neither suppressed nor described as green.
+
+Current observed verification:
+
+- Windows Python 3.12, with Docker opt-in enabled and the same disabled SDK
+  environment as CI: **119 passed, 1 browser test skipped, 47 subtests passed**.
+- Isolated Chromium acceptance: **14 passed**, all six views, a real local run,
+  ten integration cards, and no mobile overflow.
+- Linux Python 3.11 in the locked runtime image, with a separate writable scratch
+  database: **108 passed, 12 skipped, 47 subtests passed**. The minimal image has
+  no Node/browser, so those optional checks are covered by the Windows run.
+- Real container/Collector smoke passed all checks, including authentication,
+  metrics, strict consent, persistence across restart, privacy and resource cleanup.
+- Ruff, lock consistency and static deployment validation pass.
+- Independent review found no new reconciliation logic defects, but flagged the
+  existing release-blocking advisories and historical database exposure. This is
+  not production/security clearance. The unsuppressed audit still exits 1.
+
+This document records local preparation and verification. Exact-head hosted CI,
+publication, merge and branch-deletion results are recorded separately in GitHub.
+No production deployment or paid provider request is part of this reconciliation.
+
+Untracking the uploaded database does **not** remove it from historical commits
+or copies already fetched. No history purge or repository visibility change is
+included. Assess any sensitive data and rotate affected credentials separately.
+
+---
+
+## Previous local maintenance (2026-09-30)
+
 ## Scope
 
 Local maintenance only: no public deployment, cloud accounts, provider spending,

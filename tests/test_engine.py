@@ -17,6 +17,9 @@ class EngineTests(unittest.TestCase):
             "STUDIO_LITELLM_API_KEY": "",
             "STUDIO_MODEL": "",
             "STUDIO_OTLP_ENDPOINT": "",
+            # CI disables the SDK globally; this test owns an in-memory provider.
+            # Clear that flag only inside the test's restored environment.
+            "OTEL_SDK_DISABLED": "false",
         })
         self.env.start()
         self.addCleanup(self.env.stop)

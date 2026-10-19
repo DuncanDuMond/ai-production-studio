@@ -11,6 +11,26 @@ This release is a local-first, single-operator workbench, **not a certified prod
 - No user-supplied URLs, shell commands, model identifiers or filesystem paths are executed. Uploaded text is data, not instructions. Schema and citation checks do not prove immunity to prompt injection or hallucinations.
 - Third-party analytics is disabled for offline paths where SDK configuration permits. OTLP export is opt-in; metadata-only spans must not carry submitted content or secrets. A configured paid model necessarily receives the prompt and selected document text.
 
+## Security update and repository data hygiene (2026-10-19)
+
+The fresh audit of the previous lock reported eight fixable advisories: three in
+`aiohttp==3.14.3` and five in `pydantic-ai-slim==2.31.1`. The updated lock uses
+`aiohttp==3.14.5` and the patched `pydantic-ai-slim==1.107.7` maintenance line;
+those findings are absent from the fresh audit. The 1.x move is deliberate:
+patched Pydantic AI 2.x requires OpenAI >=3.19, conflicting with Guardrails'
+OpenAI <3 requirement. The approved 1.x line supports the shared OpenAI 2.x SDK.
+The existing local and transport-fixture adapter tests pass without changing
+production agent code. The remaining Ragas/diskcache findings below are not
+suppressed and still block production release.
+
+The earlier public upload tracked `data/studio.db` and compiled Python cache
+files. This reconciliation removes them from the current source tree and
+restores `.gitignore`, but **does not erase old commits or cached copies**.
+No claim is made about the database contents or whether it contains secrets.
+If it held sensitive material, review exposure and rotate any affected
+credentials; deleting a file or rewriting history does not revoke credentials.
+The real local database is preserved separately and is not uploaded.
+
 ## Dependency audit — unresolved upstream advisories
 
 The fresh audit after the maintenance update returned two distinct unresolved advisories, duplicated in the feed (four raw findings). It also verified that **PyJWT was upgraded from 2.14.0 to 2.15.1**, removing CVE-2026-101918 / GHSA-42vr-xj54-vc7v. The lockfile and `pyjwt>=2.15.1` uv constraint prevent resolution back to the affected parser. This does not make the remaining audit clean:
